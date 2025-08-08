@@ -1,0 +1,9 @@
+<div class="{{btnStyle}} {{btnOrder}}">
+  @if (btnText) {
+    <span [innerHTML]="btnText"></span>
+  }
+  @if (btnText && btnIcon) {
+    <app-svgs [icon]="btnIcon"></app-svgs>
+  }
+  <ng-content></ng-content>
+</div>

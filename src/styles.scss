@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+:root {
+  --color-bg-white: #fff;
+  --color-bg-accent: #1D62ED;
+  --color-bg-primary: #ECECEC;
+  --color-bg-secondary: #BFBABA;
+
+  --color-btn-bg-primary: #FA5354;
+
+  --color-text-primary: #1E1C1C;
+  --color-text-accent: #1D62ED;
+  --color-text-secondary: #A4A4A4;
+  --color-text-secondary-1: #797979;
+}
+
+.tag {
+  width: fit-content;
+  height: 59px;
+  padding: 6px 10px 10px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 132%;
+  letter-spacing: 0;
+  white-space: nowrap;
+  border-radius: 50px;
+  background: var(--color-bg-accent);
+  color: white;
+}

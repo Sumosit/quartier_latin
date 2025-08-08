@@ -1,0 +1,30 @@
+<header class="header">
+    <div class="container">
+        <div class="logo" (click)="navigateToHome()">
+            <img src="assets/images/logo.png" alt="Quartier Latin">
+        </div>
+
+        <button class="mobile-menu-btn" (click)="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav">
+            <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+               class="nav-link">Главная</a>
+            <a [routerLink]="['/services']" routerLinkActive="active" class="nav-link">Услуги</a>
+            <a [routerLink]="['/education']" routerLinkActive="active" class="nav-link">Образование</a>
+            <a [routerLink]="['/accommodation']" routerLinkActive="active" class="nav-link">Проживание</a>
+            <a [routerLink]="['/about']" routerLinkActive="active" class="nav-link">О компании</a>
+            <div class="language">
+                <select>
+                    <option>RU</option>
+                    <option>EN</option>
+                </select>
+            </div>
+        </nav>
+
+        <app-ui-btn-text-icon btnText="Записаться на консультацию"></app-ui-btn-text-icon>
+    </div>
+</header>
