@@ -1,0 +1,58 @@
+<section class="hero">
+  <div class="video-container">
+    <video
+      #videoElement
+      [src]="videos[currentVideoIndex].src"
+      autoplay
+      muted
+      playsinline
+      (loadedmetadata)="onVideoLoaded()"
+      (timeupdate)="onTimeUpdate()"
+      (ended)="onVideoEnded()">
+    </video>
+    {{ videos[currentVideoIndex].src }}\
+  </div>
+
+  <div class="hero-content">
+    <div class="progress-bars">
+      @for (video of videos; let i = $index; track video.title) {
+        <div
+          class="progress-bar"
+          [class.active]="i === currentVideoIndex">
+          <div
+            class="progress-fill"
+            [style.width.%]="i === currentVideoIndex ? currentProgress : (i < currentVideoIndex ? 100 : 0)">
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="hero-content__bottom">
+      <div class="hero-text">
+        <span>Quartier Latin</span>
+      </div>
+
+      <div class="video-controls">
+        <button
+          class="video-btn prev-btn"
+          (click)="previousVideo()"
+          [disabled]="currentVideoIndex === 0">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <button
+          class="video-btn next-btn"
+          (click)="nextVideo()"
+          [disabled]="currentVideoIndex === videos.length - 1">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<div class="reviews_field">
+  <app-ui-btn-text-icon [btnStyle]="'style-header'">
+    <span class="tag">Более&nbsp;4000 клиентов&nbsp;</span> Quartier Latin переехали во Францию
+  </app-ui-btn-text-icon>
+
+  <div
+    class="reviews-carousel"
+    #reviewsContainer
+    (mouseenter)="onMouseEnter()"
+    (mouseleave)="onMouseLeave()">
+    <div class="reviews">
+      @for (review of duplicatedReviews; track $index) {
+        <div class="review">
+          <div class="review-header">
+            <div class="review-header__avatar">
+              <img [src]="review.avatar_url" [alt]="review.name">
+            </div>
+            <div class="review-header__info">
+              <div class="name">{{ review.name }}</div>
+              <div class="from">{{ review.from }}</div>
+            </div>
+          </div>
+          <div class="review-message">
+            {{ review.message }}
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

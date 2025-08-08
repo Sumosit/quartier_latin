@@ -1,0 +1,87 @@
+// Education Section
+.education-section {
+  position: relative;
+  background: var(--color-bg-primary);
+  padding: 40px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    gap: 3rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .eu-books {
+      position: absolute;
+      right: -10px;
+    }
+  }
+
+  .text-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    .title {
+      font-size: 40px;
+      font-weight: 700;
+      line-height: 132%;
+      letter-spacing: 0;
+      color: var(--color-text-primary);
+
+      .highlight {
+        color: var(--color-text-accent);
+      }
+    }
+  }
+}
+
+// Statistics Section
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+
+  .stat-card {
+    min-height: 237px;
+    background: var(--color-bg-primary);
+    padding: 28px;
+    border-radius: 20px;
+    text-align: left;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 53px;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    .stat-number {
+      font-size: 70px;
+      line-height: 120%;
+      font-weight: 700;
+      color: var(--color-text-accent);
+
+      @media (max-width: 768px) {
+        font-size: 3rem;
+      }
+    }
+
+    .stat-description {
+      font-size: 20px;
+      line-height: 142%;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+  }
+}
