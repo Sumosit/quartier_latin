@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ElementRef, QueryList, ViewChildren} from '@angular/core';
 import {UiBtnIconComponent} from '../../../../shared/ui/ui-btn-icon/ui-btn-icon.component';
+import {UiBtnTextIconComponent} from '../../../../shared/ui/ui-btn-text-icon/ui-btn-text-icon.component';
 
 export interface Question {
   question: string,
@@ -10,7 +11,8 @@ export interface Question {
 @Component({
   selector: 'app-questions',
   imports: [
-    UiBtnIconComponent
+    UiBtnIconComponent,
+    UiBtnTextIconComponent
   ],
   templateUrl: './questions.component.html',
   styleUrl: './questions.component.scss'

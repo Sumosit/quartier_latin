@@ -1,6 +1,7 @@
 .bid-field {
   display: flex;
   justify-content: space-between;
+  gap: 24px;
 
   .bid-form {
     width: 692px;
@@ -65,6 +66,31 @@
       .underline {
         text-decoration: underline;
       }
+    }
+  }
+}
+.br-2 {
+  display: none;
+}
+@media (max-width: 850px) {
+  .bid-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    app-ui-btn-text-icon {
+      ::ng-deep {
+        .br-1 {
+          display: none;
+        }
+        .br-2 {
+          display: initial;
+        }
+      }
+    }
+
+    .bid-form {
+      width: 100%;
     }
   }
 }

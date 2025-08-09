@@ -1,7 +1,8 @@
 .reviews_field {
   overflow: hidden;
-  transition: 0.3s all;
-  padding: 0 0 0 40px;
+  padding-left: calc(((100vw - 1280px) / 2) + 40px);
+  padding-top: 80px;
+  padding-bottom: 80px;
   display: flex;
   flex-direction: column;
   gap: 42px;
@@ -32,7 +33,6 @@
 
     .review {
       width: 488px;
-      height: 261px;
       padding: 20px;
       border-radius: 15px;
       background: var(--color-bg-primary);
@@ -91,9 +91,15 @@
       }
     }
   }
+  @media (max-width: 1280px) {
+    padding: 80px 0 80px 40px;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 64px 0 64px 24px;
+  }
 
   @media (max-width: 768px) {
-    padding: 0 20px;
     gap: 30px;
 
     .reviews {
@@ -128,5 +134,10 @@
         }
       }
     }
+  }
+
+
+  @media (max-width: 500px) {
+    padding: 48px 0 48px 16px;
   }
 }

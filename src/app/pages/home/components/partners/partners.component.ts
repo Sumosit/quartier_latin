@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {UiBtnTextIconComponent} from '../../../../shared/ui/ui-btn-text-icon/ui-btn-text-icon.component';
 
 export interface Partner {
   height: string,
@@ -7,7 +8,9 @@ export interface Partner {
 
 @Component({
   selector: 'app-partners',
-  imports: [],
+  imports: [
+    UiBtnTextIconComponent
+  ],
   templateUrl: './partners.component.html',
   styleUrl: './partners.component.scss'
 })

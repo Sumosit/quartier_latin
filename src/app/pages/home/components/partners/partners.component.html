@@ -1,7 +1,10 @@
 <div class="partners-field">
-  @for (partner of partners; track partner) {
-    <div>
-      <img [src]="partner.url" [height]="partner.height">
-    </div>
-  }
+  <app-ui-btn-text-icon [btnStyle]="'style-header'" btnText="Часто задаваемые вопросы"></app-ui-btn-text-icon>
+  <div class="partners">
+    @for (partner of partners; track partner) {
+      <div>
+        <img [src]="partner.url" [height]="partner.height">
+      </div>
+    }
+  </div>
 </div>

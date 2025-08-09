@@ -1,26 +1,23 @@
-// Education Section
 .education-section {
   position: relative;
   background: var(--color-bg-primary);
-  padding: 40px;
   border-radius: 20px;
   margin-bottom: 20px;
+  overflow: hidden; /* Добавить эту строку */
 
   .content {
+    height: 100%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 auto;
-    gap: 3rem;
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-      text-align: center;
-    }
+    gap: 32px;
+    padding: 40px;
 
     .eu-books {
       position: absolute;
-      right: -10px;
+      top: -24px;
+      right: -40px;
     }
   }
 
@@ -31,6 +28,8 @@
     gap: 32px;
 
     .title {
+      width: 84%;
+      text-align: left;
       font-size: 40px;
       font-weight: 700;
       line-height: 132%;
@@ -44,44 +43,190 @@
   }
 }
 
-// Statistics Section
+
+@media (max-width: 1280px) {
+  .education-section {
+
+    .text-content {
+      .title {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .education-section {
+    height: 318px;
+
+    .content {
+      padding: 24px;
+      flex-direction: column;
+      text-align: center;
+
+      .eu-books {
+        top: initial;
+        bottom: -16px;
+        right: -42px;
+
+        img {
+          width: 265px;
+          height: 265px;
+        }
+      }
+    }
+
+    .text-content {
+      gap: 28px;
+
+      .title {
+        font-size: 32px;
+        line-height: 120%;
+        width: 88%;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 750px) {
+  .education-section {
+    height: 350px;
+
+    .content {
+      padding: 16px;
+      flex-direction: column;
+      text-align: center;
+
+      .eu-books {
+        top: initial;
+        bottom: -29px;
+        right: -72px;
+
+        img {
+          width: 255px;
+          height: 255px;
+        }
+      }
+    }
+
+    .text-content {
+      .title {
+        font-size: 26px;
+        width: 100%;
+      }
+
+      app-ui-btn-text-icon {
+        margin-top: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .education-section {
+    height: 480px;
+
+    .content {
+    }
+
+    .text-content {
+      .title {
+        width: 100%;
+      }
+    }
+  }
+}
+
 .stats-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  padding: 28px;
+  border-radius: 20px;
+  text-align: left;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 53px;
+  background: var(--color-bg-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+  font-size: 70px;
+  line-height: 120%;
+  font-weight: 700;
+  color: var(--color-text-accent);
+  margin: 0;
+}
+
+.stat-description {
+  font-size: 20px;
+  line-height: 142%;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* Мобильные устройства */
+@media (max-width: 1024px) {
+  .stats-section {
+    grid-template-columns: 1fr 1fr;
+  }
 
   .stat-card {
-    min-height: 237px;
-    background: var(--color-bg-primary);
-    padding: 28px;
-    border-radius: 20px;
-    text-align: left;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 53px;
-
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    }
+    height: 196px;
+    gap: 27px;
 
     .stat-number {
-      font-size: 70px;
-      line-height: 120%;
-      font-weight: 700;
-      color: var(--color-text-accent);
+      font-size: 48px;
+    }
+  }
 
-      @media (max-width: 768px) {
-        font-size: 3rem;
-      }
+  /* Третий элемент занимает всю ширину */
+  .stat-card:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .stat-description {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .stats-section {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .stat-card {
+    height: 172px;
+    gap: 24px;
+    padding: 16px;
+
+    .stat-number {
+      font-size: 40px;
+      line-height: 132%;
     }
 
     .stat-description {
-      font-size: 20px;
-      line-height: 142%;
-      font-weight: 600;
-      color: var(--color-text-primary);
+      font-size: 16px;
+      line-height: 130%;
     }
+  }
+
+  .stat-card:nth-child(3) {
+    grid-column: 1;
   }
 }

@@ -1,21 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@font-face {
+  font-family: 'Involve';
+  src: url('./assets/fonts/involve/Involve-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
+@font-face {
+  font-family: 'Involve';
+  src: url('./assets/fonts/involve/Involve-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+@font-face {
+  font-family: 'Involve';
+  src: url('./assets/fonts/involve/Involve-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Involve';
+  src: url('./assets/fonts/involve/Involve-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Если есть наклонные варианты */
+@font-face {
+  font-family: 'Involve';
+  src: url('./assets/fonts/involve/Involve-Oblique.ttf') format('truetype');
+  font-weight: 400;
+  font-style: oblique;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Involve';
+  src: url('./assets/fonts/involve/Involve-BoldOblique.ttf') format('truetype');
+  font-weight: 700;
+  font-style: oblique;
+  font-display: swap;
 }
 
 :root {
@@ -32,6 +63,24 @@ body {
   --color-text-secondary-1: #797979;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Involve', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 .tag {
   width: fit-content;
   height: 59px;
@@ -44,4 +93,12 @@ body {
   border-radius: 50px;
   background: var(--color-bg-accent);
   color: white;
+
+  @media (max-width: 1024px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 26px;
+  }
 }

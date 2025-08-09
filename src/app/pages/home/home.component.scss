@@ -2,40 +2,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 80px;
 
-  .home-items {
-    width: 100%;
+  > *{
     max-width: 1280px;
+    width: 100%;
+    padding: 80px 40px;
 
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-
-    .home-item {
-      padding: 0 40px;
-      display: flex;
-      flex-direction: column;
-
-      &__header {
-      }
-
-      &.service {
-        gap: 48px;
-      }
-
-      &.partners {
-        gap: 32px;
-        padding-left: 40px;
-      }
-
-      &.questions {
-        gap: 40px;
-      }
-
-      &.reviews {
-        padding: 0;
-      }
+    @media (max-width: 1024px) {
+      padding: 64px 24px;
     }
+
+    @media (max-width: 500px) {
+      padding: 49px 16px;
+    }
+  }
+
+  app-hero {
+    padding: 0;
   }
 }

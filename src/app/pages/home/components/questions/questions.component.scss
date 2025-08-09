@@ -1,50 +1,55 @@
 .questions_field {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
+  .questions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
-  .question {
-    padding: 20px;
-    border-radius: 20px;
-    background-color: var(--color-bg-primary);
-    overflow: hidden;
-    transition: all 0.3s ease;
-
-    .question_header {
-      display: flex;
-      justify-content: space-between;
-      cursor: pointer;
-      user-select: none;
-
-      span {
-        font-size: 24px;
-        font-weight: 600;
-        line-height: 130%;
-        color: var(--color-text-primary);
-      }
-
-      app-ui-btn-icon {
-        margin-bottom: auto;
-      }
-    }
-
-    .question_answer_wrapper {
-      max-height: 0;
+    .question {
+      padding: 20px;
+      border-radius: 20px;
+      background-color: var(--color-bg-primary);
       overflow: hidden;
-      transition: max-height 0.3s ease, padding-top 0.3s ease;
-    }
+      transition: all 0.3s ease;
 
-    &.is-open {
-      .question_answer_wrapper {
-        max-height: 500px; /* Достаточно большое значение */
+      .question_header {
+        display: flex;
+        justify-content: space-between;
+        cursor: pointer;
+        user-select: none;
+
+        span {
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 130%;
+          color: var(--color-text-primary);
+        }
+
+        app-ui-btn-icon {
+          margin-bottom: auto;
+        }
       }
-    }
 
-    .question_answer {
-      font-size: 20px;
-      font-weight: 600;
-      line-height: 142%;
-      color: var(--color-text-secondary, #666);
+      .question_answer_wrapper {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding-top 0.3s ease;
+      }
+
+      &.is-open {
+        .question_answer_wrapper {
+          max-height: 500px; /* Достаточно большое значение */
+        }
+      }
+
+      .question_answer {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 142%;
+        color: var(--color-text-secondary, #666);
+      }
     }
   }
 }

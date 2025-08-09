@@ -12,6 +12,9 @@
     background: var(--color-bg-primary);
     display: flex;
     justify-content: space-between;
+    @media (max-width: 500px) {
+      flex-direction: column;
+    }
 
     &__left {
       display: flex;
@@ -30,7 +33,7 @@
         letter-spacing: 0;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 17.5px 40px;
+        gap: 17.5px 0;
 
         > div {
           display: flex;
@@ -62,6 +65,40 @@
             font-weight: 700;
           }
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  :host {
+    .footer-field {
+      padding: 24px;
+      gap: 20px;
+
+      &__left {
+
+        img {
+        }
+
+        .footer-contacts {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+      &__right {
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+  :host {
+    .footer-field {
+      padding: 16px;
+      gap: 20px;
+
+      &__right {
       }
     }
   }

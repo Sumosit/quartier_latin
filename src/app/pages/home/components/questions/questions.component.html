@@ -1,13 +1,16 @@
 <div class="questions_field">
-  @for (question of questions; track question; let i = $index) {
-    <div class="question" [class.is-open]="question.is_open">
-      <div class="question_header" (click)="toggleQuestion(i)">
-        <span [innerHTML]="question.question"></span>
-        <app-ui-btn-icon btnStyle="style-2"></app-ui-btn-icon>
+  <app-ui-btn-text-icon [btnStyle]="'style-header'" btnText="Партнёры Quartier Latin"></app-ui-btn-text-icon>
+  <div class="questions">
+    @for (question of questions; track question; let i = $index) {
+      <div class="question" [class.is-open]="question.is_open">
+        <div class="question_header" (click)="toggleQuestion(i)">
+          <span [innerHTML]="question.question"></span>
+          <app-ui-btn-icon btnStyle="style-2"></app-ui-btn-icon>
+        </div>
+        <div class="question_answer_wrapper">
+          <div class="question_answer" [innerHTML]="question.answer"></div>
+        </div>
       </div>
-      <div class="question_answer_wrapper">
-        <div class="question_answer" [innerHTML]="question.answer"></div>
-      </div>
-    </div>
-  }
+    }
+  </div>
 </div>

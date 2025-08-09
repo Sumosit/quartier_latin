@@ -4,12 +4,6 @@
             <img src="assets/images/logo.png" alt="Quartier Latin">
         </div>
 
-        <button class="mobile-menu-btn" (click)="toggleMobileMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
         <nav class="nav">
             <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
                class="nav-link">Главная</a>
@@ -25,6 +19,12 @@
             </div>
         </nav>
 
+
+        <button class="mobile-menu-btn" (click)="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <app-ui-btn-text-icon btnText="Записаться на консультацию"></app-ui-btn-text-icon>
     </div>
 </header>
