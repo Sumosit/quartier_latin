@@ -50,9 +50,9 @@
   margin-top: auto;
 
   span {
-    line-height: 120px;
-    font-size: 7.5rem;
+    font-size: 120px;
     font-weight: 700;
+    line-height: 120%;
     margin: 0;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   }
@@ -69,7 +69,6 @@
     background: rgba(255, 255, 255, 0.3);
     border-radius: 100px;
     overflow: hidden;
-    transition: all 0.3s ease;
 
     &.active {
       background: rgba(255, 255, 255, 0.5);
@@ -78,7 +77,7 @@
     .progress-fill {
       height: 100%;
       background: white;
-      transition: width 0.1s ease;
+      transition: width 0.9s ease;
       border-radius: 2px;
     }
   }
@@ -135,6 +134,63 @@
     svg {
       width: 24px;
       height: 24px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    .hero-content {
+      padding: 96px 24px 64px;
+      &__bottom {
+        .hero-text {
+          span {
+            font-size: 80px;
+            line-height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    .hero-content {
+      padding: 96px 16px 64px;
+      &__bottom {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: initial;
+        gap: 16px;
+
+        .hero-text {
+          span {
+            font-size: 52px;
+            line-height: 100%;
+          }
+        }
+
+        .video-controls {
+          margin-left: initial;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 375px) {
+  .hero {
+    .hero-content {
+      &__bottom {
+        .hero-text {
+          span {
+          }
+        }
+
+        .video-controls {
+          margin-left: auto;
+        }
+      }
     }
   }
 }

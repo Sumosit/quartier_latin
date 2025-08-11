@@ -1,4 +1,6 @@
 :host {
+  cursor: pointer;
+  user-select: none;
   > div {
     display: flex;
     justify-content: center;
@@ -16,6 +18,24 @@
       height: 50px;
       border-radius: 12px;
       background: var(--color-bg-accent);
+
+      &.small {
+        ::ng-deep app-svgs div {
+          width: initial;
+          height: initial;
+          display: flex;
+        }
+      }
+    }
+
+    &.style-3 {
+      width: 48px;
+      height: 48px;
+
+      ::ng-deep app-svgs div {
+        width: 32px;
+        height: 24px;
+      }
     }
   }
 }

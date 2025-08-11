@@ -5,7 +5,7 @@
       <div class="question" [class.is-open]="question.is_open">
         <div class="question_header" (click)="toggleQuestion(i)">
           <span [innerHTML]="question.question"></span>
-          <app-ui-btn-icon btnStyle="style-2"></app-ui-btn-icon>
+          <app-ui-btn-icon [btnIcon]="question.is_open ? 'cross' : 'plus'" [btnStyle]="question.is_open ? 'style-2 small' : 'style-2'"></app-ui-btn-icon>
         </div>
         <div class="question_answer_wrapper">
           <div class="question_answer" [innerHTML]="question.answer"></div>

@@ -10,25 +10,27 @@
   transition: all 0.3s ease;
 
   .container {
+    max-width: 1280px;
     height: 75px;
+    margin: 0 auto;
+    padding: 0 40px;
     display: flex;
     align-items: center;
-    //justify-content: space-between;
     gap: 34px;
-    padding: 0 20px;
-    max-width: 1280px;
-    margin: 0 auto;
+
+    app-ui-btn-text-icon {
+      margin-left: auto;
+    }
   }
 
   .logo {
+    cursor: pointer;
+    transition: opacity 0.3s;
+    font-weight: bold;
     display: flex;
     align-items: center;
     gap: 10px;
-    font-weight: bold;
-    font-size: 1.2rem;
     color: white;
-    cursor: pointer;
-    transition: opacity 0.3s;
 
     &:hover {
       opacity: 0.8;
@@ -44,20 +46,16 @@
   .nav {
     display: flex;
     align-items: center;
-    gap: 2rem;
-
-    @media (max-width: 1250px) {
-      display: none;
-    }
+    gap: 32px;
 
     .nav-link {
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.9);
-      font-weight: 500;
-      font-size: 0.95rem;
       transition: all 0.3s;
       position: relative;
-      padding: 0.5rem 0;
+      font-size: 16px;
+      font-weight: 600;
+      white-space: nowrap;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.9);
 
       &:hover {
         color: white;
@@ -81,18 +79,13 @@
 
     .language {
       select {
-        //background: rgba(255, 255, 255, 0.1);
         border: none;
         color: white;
         border-radius: 6px;
         font-weight: 500;
         cursor: pointer;
         transition: all 0.3s;
-        background: rgba(0,0,0,0);
-
-        &:hover {
-          //background: rgba(255, 255, 255, 0.2);
-        }
+        background: rgba(0, 0, 0, 0);
 
         option {
           color: white;
@@ -101,97 +94,41 @@
     }
   }
 
-  // Mobile Menu Button
-  .mobile-menu-btn {
+  app-ui-btn-icon {
     display: none;
-    flex-direction: column;
-    gap: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    transition: all 0.3s;
-
-    @media (max-width: 1250px) {
-      display: flex;
-    }
-
-    span {
-      width: 25px;
-      height: 3px;
-      background: white; // Белый цвет для видео-фона
-      border-radius: 2px;
-      transition: all 0.3s;
-    }
-
-    &.active {
-      span:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
-      }
-
-      span:nth-child(2) {
-        opacity: 0;
-      }
-
-      span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-      }
-    }
   }
+}
 
-  // Mobile Navigation
-  .mobile-nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transform: translateY(-100%);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-
-    &.active {
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .nav-link {
-      display: block;
-      padding: 1rem 20px;
-      text-decoration: none;
-      color: rgba(255, 255, 255, 0.9);
-      font-weight: 500;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      transition: all 0.3s;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.05);
-        color: white;
+@media (max-width: 1275px) {
+  .header {
+    .container {
+      .nav, app-ui-btn-text-icon {
+        display: none;
       }
 
-      &.active {
-        background: rgba(255, 107, 107, 0.2);
-        color: white;
-      }
-
-      &:last-child {
-        border-bottom: none;
+      app-ui-btn-icon {
+        display: initial;
+        margin-left: auto;
       }
     }
   }
 }
 
-// Global container width
-.container {
-  max-width: 1280px !important; // Принудительно устанавливаем ширину 1280px
-  margin: 0 auto;
-  padding: 0 20px;
+@media (max-width: 1024px) {
+  .header {
+    .container {
+      padding: 0 24px;
+      .nav {
+        display: none;
+      }
+    }
+  }
+}
 
-  app-ui-btn-text-icon {
-    margin-left: auto;
+@media (max-width: 500px) {
+  .header {
+    .container {
+      padding: 0 16px;
+    }
   }
 }

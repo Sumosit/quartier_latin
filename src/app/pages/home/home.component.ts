@@ -17,7 +17,6 @@ import {BidComponent} from './components/bid/bid.component';
     StatsComponent,
     OrderHelpComponent,
     ServiceCardsComponent,
-    UiBtnTextIconComponent,
     PartnersComponent,
     QuestionsComponent,
     ReviewsComponent,

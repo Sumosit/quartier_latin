@@ -10,6 +10,6 @@ import {Icons, SvgsComponent} from '../../svgs/svgs.component';
   styleUrl: './ui-btn-icon.component.scss'
 })
 export class UiBtnIconComponent {
-  @Input() btnStyle: 'style-1' | 'style-2' = 'style-1'
+  @Input() btnStyle: string | 'style-1' | 'style-2'| 'style-3' = 'style-1'
   @Input() btnIcon: Icons = ''
 }
