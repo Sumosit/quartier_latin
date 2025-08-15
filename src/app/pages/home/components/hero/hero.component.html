@@ -33,25 +33,8 @@
       </div>
 
       <div class="video-controls">
-        <button
-          class="video-btn prev-btn"
-          (click)="previousVideo()"
-          [disabled]="currentVideoIndex === 0">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round"/>
-          </svg>
-        </button>
-
-        <button
-          class="video-btn next-btn"
-          (click)="nextVideo()"
-          [disabled]="currentVideoIndex === videos.length - 1">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round"/>
-          </svg>
-        </button>
+        <app-ui-btn-icon (click)="previousVideo()" btnIcon="arrow-left" btnStyle="style-2" [btnStatus]="currentVideoIndex === 0 ? '' : 'active'"></app-ui-btn-icon>
+        <app-ui-btn-icon (click)="nextVideo()" btnIcon="arrow-right" btnStyle="style-2" [btnStatus]="currentVideoIndex === videos.length - 1 ? '' : 'active'"></app-ui-btn-icon>
       </div>
     </div>
   </div>

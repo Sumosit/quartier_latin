@@ -3,5 +3,5 @@
     <span class="tag">Латинский Квартал</span> поможет поступить в ведущие вузы Франции, Германии, Италии и Испании,
     открывая новые возможности для вашего успеха
   </div>
-  <app-ui-btn-text-icon btnText="Заказать услугу"></app-ui-btn-text-icon>
+  <app-ui-btn-text-icon (click)="modalService.currentModal = 'form-consultation'" btnText="Заказать услугу"></app-ui-btn-text-icon>
 </div>

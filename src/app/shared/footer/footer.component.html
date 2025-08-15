@@ -7,7 +7,7 @@
       <div><app-svgs icon="mail"></app-svgs> contact&#64;quartier-latin.com</div>
       <div><app-svgs icon="whatsapp"></app-svgs> +33 6 26 63 86 27</div>
     </div>
-    <app-ui-btn-text-icon btnText="Заказать консультацию"></app-ui-btn-text-icon>
+    <app-ui-btn-text-icon (click)="modalService.currentModal = 'form-consultation'" btnText="Заказать консультацию"></app-ui-btn-text-icon>
   </div>
   <div class="footer-field__right">
     <div class="footer_routes">

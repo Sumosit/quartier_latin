@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" [class.solid]="solid()">
   <div class="container">
     <div class="logo" (click)="navigateToHome()">
       <img src="assets/images/logo.png" alt="Quartier Latin">
@@ -18,7 +18,7 @@
         </select>
       </div>
     </nav>
-    <app-ui-btn-text-icon btnText="Записаться на консультацию"></app-ui-btn-text-icon>
+    <app-ui-btn-text-icon (click)="modalService.currentModal = 'form-consultation'" btnText="Записаться на консультацию"></app-ui-btn-text-icon>
     <app-ui-btn-icon btnStyle="style-3" btnIcon="menu"></app-ui-btn-icon>
   </div>
 </header>

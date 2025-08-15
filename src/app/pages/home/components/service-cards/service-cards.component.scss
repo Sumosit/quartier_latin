@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     grid-auto-rows: minmax(380px, auto);
-    align-items: stretch; // Это делает все карточки одинаковой высоты
+    align-items: stretch;
     gap: 26px;
 
     .service-card {

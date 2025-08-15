@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {UiBtnTextIconComponent} from '../ui/ui-btn-text-icon/ui-btn-text-icon.component';
 import {SvgsComponent} from '../svgs/svgs.component';
+import {ModalService} from '../modal-field/modal.service';
 
 @Component({
   selector: 'app-footer',
@@ -14,4 +15,6 @@ import {SvgsComponent} from '../svgs/svgs.component';
 })
 export class FooterComponent {
 
+  constructor(protected modalService: ModalService) {
+  }
 }

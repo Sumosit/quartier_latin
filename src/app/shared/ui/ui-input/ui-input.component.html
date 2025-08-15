@@ -1,0 +1,24 @@
+<label class="ui-input"
+       [class.disabled]="disabled"
+       [class.invalid]="invalid"
+       [class.dirty]="isDirty">
+  <input
+    #inp
+    [type]="type"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [readonly]="readonly"
+    [attr.autocomplete]="autocomplete ?? null"
+    [attr.inputmode]="inputmode"
+    [attr.maxlength]="maxlength ?? null"
+    [name]="name"
+    [id]="id"
+    [value]="value"
+    [attr.aria-invalid]="invalid || null"
+    (input)="handleInput($event)"
+    (blur)="onTouched()"
+  />
+</label>
+
+<!-- показываем текст ошибки только когда реально invalid -->
+<div class="ui-error" *ngIf="invalid && errorText">{{ errorText }}</div>

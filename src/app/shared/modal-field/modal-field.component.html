@@ -1,0 +1,10 @@
+<div class="modal-field"
+     [class.open]="modalService.currentModal !== ''"
+     (click)="modalService.currentModal = ''">
+
+  <div class="modal" (click)="$event.stopPropagation()">
+    @if (modalService.currentModal === 'form-consultation') {
+      <app-form-consulation></app-form-consulation>
+    }
+  </div>
+</div>

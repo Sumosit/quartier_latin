@@ -27,8 +27,18 @@
           color: var(--color-text-primary);
         }
 
-        app-ui-btn-icon {
+        ::ng-deep app-ui-btn-icon {
           margin-bottom: auto;
+          app-svgs {
+            transition: 0.3s;
+            transform: rotate(0);
+          }
+
+          &.active {
+            app-svgs {
+              transform: rotate(45deg);
+            }
+          }
         }
       }
 

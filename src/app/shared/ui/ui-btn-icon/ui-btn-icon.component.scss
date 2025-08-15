@@ -14,10 +14,30 @@
     }
 
     &.style-2 {
+      transition: all 0.3s ease-out;
       width: 50px;
       height: 50px;
       border-radius: 12px;
-      background: var(--color-bg-accent);
+      background: var(--color-bg-primary);
+
+      ::ng-deep app-svgs {
+        svg path {
+          stroke: var(--color-icon-line);
+        }
+      }
+      &.active {
+        background: var(--color-bg-accent);
+        ::ng-deep app-svgs {
+          svg path {
+            stroke: var(--color-icon-line-1);
+          }
+        }
+      }
+
+      &:hover, &:hover &.active {
+        background: rgba(19, 19, 19, 0.38);
+      }
+
 
       &.small {
         ::ng-deep app-svgs div {

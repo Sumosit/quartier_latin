@@ -1,0 +1,42 @@
+<form class="bid-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <div class="bid-form__header">Заполни форму</div>
+
+    <div class="bid-form__inputs">
+      <app-ui-dropdown
+        placeholder="Способ связи"
+        [options]="['Телефон','Email','Telegram']"
+        formControlName="contactMethod">
+      </app-ui-dropdown>
+
+      <app-ui-input
+        placeholder="Имя и фамилия"
+        formControlName="fullName">
+      </app-ui-input>
+
+      <app-ui-input
+        placeholder="Номер телефона"
+        type="tel"
+        formControlName="phone">
+      </app-ui-input>
+
+      <app-ui-input
+        placeholder="Email"
+        type="email"
+        formControlName="email">
+      </app-ui-input>
+    </div>
+
+    <app-ui-btn-text-icon
+      btnText="Записаться на консультацию"
+      (click)="onSubmit()"
+      [class.disabled]="form.invalid">
+    </app-ui-btn-text-icon>
+
+    <button type="submit" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;"></button>
+  </div>
+
+  <span class="bid-form__footer">
+      Нажимая на кнопку, Вы соглашаетесь с&nbsp;<span class="underline"></span>Политикой обработки персональных данных
+    </span>
+</form>

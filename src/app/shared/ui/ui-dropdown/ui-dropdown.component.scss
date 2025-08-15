@@ -1,0 +1,112 @@
+:host {
+  cursor: pointer;
+  user-select: none;
+  width: 100%;
+  display: block;
+
+  --inp-height: 48px;
+  --inp-padding-x: 12px;
+  --inp-radius: 12px;
+  --inp-font-size: 18px;
+  --inp-font-weight: 500;
+  --inp-line-height: 1; /* 100% */
+  --inp-bg: #fff;
+  --inp-text: var(--color-text-primary);
+  --panel-shadow: 0 10px 24px rgba(0,0,0,.08);
+}
+
+/* корень dropdown */
+.dropdown {
+  position: relative;
+
+  &.disabled { opacity: .6; pointer-events: none; }
+
+  /* «инпут» */
+  .control {
+    width: 100%;
+    height: var(--inp-height);
+    background: var(--inp-bg);
+    color: var(--inp-text);
+    border: none;                   /* как у input в форме */
+    border-radius: var(--inp-radius);
+    padding: 0 calc(var(--inp-padding-x) + 24px) 0 var(--inp-padding-x); /* + место под стрелку */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    text-align: left;
+    font-size: var(--inp-font-size);
+    font-weight: var(--inp-font-weight);
+    line-height: var(--inp-line-height);
+    outline: none;
+
+    /* без свето-рамки, чтобы совпадало со входными инпутами */
+    &:focus,
+    &:focus-visible { outline: none; box-shadow: none; }
+
+    .value {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      &.placeholder {
+        /* в твоей форме плейсхолдер тем же цветом */
+        color: var(--inp-text);
+      }
+    }
+
+    .chevron {
+      position: absolute;
+      right: var(--inp-padding-x);
+      top: 0;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+      color: #7b8088;
+      transition: transform .15s ease;
+    }
+  }
+
+  &.open .chevron { transform: rotate(180deg); }
+
+  /* выпадающая панель */
+  .panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 8px);
+    background: #fff;
+    border: none;                       /* без рамки, как поля ввода */
+    border-radius: var(--inp-radius);
+    box-shadow: var(--panel-shadow);
+    z-index: 50;
+    overflow: hidden;
+
+    .panel-scroll { max-height: 260px; overflow: auto; }
+
+    .item {
+      width: 100%;
+      min-height: 40px;
+      padding: 10px var(--inp-padding-x);
+      border: 0;
+      background: transparent;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      color: var(--inp-text);
+      font-size: var(--inp-font-size);
+      font-weight: var(--inp-font-weight);
+      line-height: var(--inp-line-height);
+      transition: background .12s ease;
+
+      &:hover, &.focused { background: #f3f4f6; } /* легкий hover */
+      &.selected { font-weight: 600; }
+      &.clear { color: #6b7280; } /* серый для «Очистить» */
+
+      .check { margin-left: 8px; }
+    }
+  }
+}

@@ -1,8 +1,11 @@
 import {Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {UiBtnIconComponent} from '../../../../shared/ui/ui-btn-icon/ui-btn-icon.component';
 
 @Component({
   selector: 'app-hero',
-  imports: [],
+  imports: [
+    UiBtnIconComponent
+  ],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })

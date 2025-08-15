@@ -1,0 +1,64 @@
+:host {
+  display: block;
+  width: 100%;
+
+  .tabs {
+    user-select: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .track {
+      position: relative;
+      display: inline-flex;
+      gap: 64px;
+
+      .tab {
+        transition: color .15s ease;
+        cursor: pointer;
+        margin: 0;
+        padding: 10px 0 14px;
+        font-size: 16px;
+        font-weight: 600;
+        border: 0;
+        outline: none;
+        background: transparent;
+        color: var(--color-text-secondary);
+
+        &.active {
+          color: var(--color-text-primary);
+        }
+
+        &:hover:not(.active):not(.disabled) {
+          color: var(--color-text-secondary);
+        }
+
+        &.disabled {
+          color: #cbd5e1;
+          cursor: not-allowed;
+        }
+      }
+
+      .indicator {
+        transition: transform .25s ease, width .25s ease;
+        will-change: transform, width;
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        height: 6px;
+        border-radius: 6px;
+        background: var(--color-brand, #1e6df8);
+      }
+    }
+
+    .line {
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+      width: 100%;
+      height: 2px;
+      background: var(--color-icon-line); /* baseline */
+    }
+  }
+}

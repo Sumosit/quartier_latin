@@ -12,7 +12,7 @@
           <div class="card-overlay"></div>
           <div class="card-content">
             <span class="card-title">{{ card.title }}</span>
-            <app-ui-btn-text-icon btnText="Подробнее" btnStyle="style-2"></app-ui-btn-text-icon>
+            <app-ui-btn-text-icon routerLink="/services" btnText="Подробнее" btnStyle="style-2"></app-ui-btn-text-icon>
           </div>
         } @else if (card.type === 'type-text') {
           <div class="card-content">
@@ -20,7 +20,7 @@
           </div>
         } @else if (card.type === 'type-btn') {
           <div class="card-content">
-            <app-ui-btn-text-icon [btnText]="card.buttonText ?? ''"></app-ui-btn-text-icon>
+            <app-ui-btn-text-icon routerLink="/services" [btnText]="card.buttonText ?? ''"></app-ui-btn-text-icon>
           </div>
         }
       </div>
