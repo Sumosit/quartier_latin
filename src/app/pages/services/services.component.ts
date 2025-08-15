@@ -9,6 +9,7 @@ import {ServiceCardsComponent} from "../home/components/service-cards/service-ca
 import {StatsComponent} from "../home/components/stats/stats.component";
 import {SubscribeComponent} from "../home/components/subscribe/subscribe.component";
 import {TabsComponent} from '../../shared/ui/ui-tabs/ui-tabs.component';
+import {ServiceCardsBigComponent} from './service-cards-big/service-cards-big.component';
 
 @Component({
   selector: 'app-services',
@@ -22,7 +23,8 @@ import {TabsComponent} from '../../shared/ui/ui-tabs/ui-tabs.component';
     ServiceCardsComponent,
     StatsComponent,
     SubscribeComponent,
-    TabsComponent
+    TabsComponent,
+    ServiceCardsBigComponent
   ],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'

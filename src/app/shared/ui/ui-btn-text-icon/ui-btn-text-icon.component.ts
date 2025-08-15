@@ -12,7 +12,7 @@ import {Icons, SvgsComponent} from '../../svgs/svgs.component';
 })
 export class UiBtnTextIconComponent {
   @Input() btnText: string = ''
-  @Input() btnStyle: 'style-1' | 'style-2' | 'style-header' = 'style-1'
+  @Input() btnStyle: 'style-1' | 'style-2' | 'style-3' | 'style-header' = 'style-1'
   @Input() btnOrder: 'default' | 'row-reverse' = 'default'
   @Input() btnIcon: Icons = ''
 }

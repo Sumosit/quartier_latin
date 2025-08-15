@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 
 export type Icons = '' |
+  'arrow-right-big'     |
   'arrow-right'     |
   'arrow-left'     |
   'cross'     |

@@ -5,8 +5,8 @@
       <div
         class="service-card {{card.type}}"
         [style.background-image]="card.backgroundImage ? 'url(' + card.backgroundImage + ')' : 'none'"
+        [style.background-position]="card.backgroundPosition || 'center'"
         [attr.data-index]="i">
-<!--        [style.background-position]="card.backgroundPosition || 'center'"-->
 
         @if (card.type === 'type-default') {
           <div class="card-overlay"></div>

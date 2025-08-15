@@ -57,5 +57,44 @@
         height: 24px;
       }
     }
+
+    &.style-4 {
+      transition: all 0.3s;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--color-bg-primary);
+
+      ::ng-deep app-svgs {
+        > div {
+          width: 48px;
+          height: 48px;
+        }
+        svg path {
+          stroke: var(--color-bg-accent);
+        }
+      }
+
+      &.active {
+        background: var(--color-bg-accent);
+
+        ::ng-deep app-svgs {
+          > div {
+            width: 48px;
+            height: 48px;
+          }
+          svg path {
+            stroke: #fff;
+          }
+        }
+      }
+
+      &:hover:not(:disabled) {
+        transform: scale(1.05);
+      }
+    }
   }
 }

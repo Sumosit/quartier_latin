@@ -1,12 +1,12 @@
 .header {
-  backdrop-filter: blur(4px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  background: #17171766;
 
   &.solid {
     background: var(--color-bg-header);

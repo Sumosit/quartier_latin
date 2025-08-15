@@ -1,0 +1,34 @@
+<div class="service-cards-big">
+  <app-ui-btn-text-icon btnText="Услуги" btnStyle="style-header"></app-ui-btn-text-icon>
+
+  <div class="services">
+    @for (s of services; track s) {
+      <a class="service"
+         [routerLink]="s.link"
+         [style.background-image]="'url(' + s.bg + ')'"
+         [style.background-position]="s.bgPos || 'right center'">
+        <div class="overlay"></div>
+
+        <div class="content">
+          <div class="title_desc">
+            <div class="title">{{ s.title }}</div>
+            @if (s.desc) {
+              <div class="desc">{{ s.desc }}</div>
+            }
+          </div>
+
+          @if (s.tags?.length) {
+            <div class="tags">
+              @for (t of s.tags; track t) {
+<!--                <span class="tag">{{ t }}</span>-->
+                <app-ui-btn-text-icon btnStyle="style-3" [btnText]="t"></app-ui-btn-text-icon>
+              }
+            </div>
+          }
+        </div>
+
+        <app-ui-btn-icon btnIcon="arrow-right-big" btnStyle="style-4"></app-ui-btn-icon>
+      </a>
+    }
+  </div>
+</div>

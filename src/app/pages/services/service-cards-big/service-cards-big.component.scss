@@ -1,0 +1,84 @@
+:host {
+  display: block;
+}
+
+.service-cards-big {
+  display: grid;
+  gap: 24px;
+}
+
+.services {
+  display: grid;
+  gap: 16px;
+
+  .service {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+
+    height: 337px;
+    padding: 20px;
+    border-radius: 20px;
+
+    text-decoration: none;
+    overflow: hidden;
+
+    background-color: #ddd;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: #20202066;
+      backdrop-filter: blur(7px);
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      max-width: 770px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      .title_desc {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .title {
+          font-size: 32px;
+          font-weight: 700;
+          line-height: 120%;
+          letter-spacing: 0;
+        }
+
+        .desc {
+          max-width: 528px;
+          width: 100%;
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 142%;
+          letter-spacing: 0;
+        }
+      }
+
+      .tags {
+        margin-top: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+    }
+
+    app-ui-btn-icon {
+      margin-top: auto;
+      z-index: 1;
+    }
+  }
+}

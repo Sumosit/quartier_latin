@@ -1,6 +1,7 @@
 // reviews.component.ts
 import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import { UiBtnTextIconComponent } from '../../../../shared/ui/ui-btn-text-icon/ui-btn-text-icon.component';
+import {UiBtnIconComponent} from '../../../../shared/ui/ui-btn-icon/ui-btn-icon.component';
 
 export interface Review {
   avatar_url: string;
@@ -11,7 +12,7 @@ export interface Review {
 
 @Component({
   selector: 'app-reviews',
-  imports: [UiBtnTextIconComponent],
+  imports: [UiBtnTextIconComponent, UiBtnIconComponent],
   templateUrl: './reviews.component.html',
   styleUrl: './reviews.component.scss'
 })
