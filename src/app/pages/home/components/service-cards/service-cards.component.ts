@@ -30,7 +30,7 @@ export class ServiceCardsComponent {
       id: 1,
       type: 'type-default',
       title: 'Пакеты по поступлению в ВУЗ',
-      backgroundImage: 'assets/images/service_card_1.jpg',
+      backgroundImage: 'assets/images/service_card_1.png',
       backgroundPosition: '0%',
       buttonText: 'Подробнее',
       link: '/services/university'
@@ -45,7 +45,7 @@ export class ServiceCardsComponent {
       id: 3,
       type: 'type-default',
       title: 'Языковые курсы',
-      backgroundImage: 'assets/images/service_card_2.jpg',
+      backgroundImage: 'assets/images/service_card_2.png',
       backgroundPosition: '72%',
       buttonText: 'Подробнее',
       link: '/services/visa'
@@ -54,7 +54,7 @@ export class ServiceCardsComponent {
       id: 4,
       type: 'type-default',
       title: 'Визовая поддержка',
-      backgroundImage: 'assets/images/service_card_3.jpg',
+      backgroundImage: 'assets/images/service_card_3.png',
       backgroundPosition: '0%',
       buttonText: 'Подробнее',
       link: '/services/housing'
@@ -63,7 +63,7 @@ export class ServiceCardsComponent {
       id: 5,
       type: 'type-default',
       title: 'Поиск жилья',
-      backgroundImage: 'assets/images/service_card_4.jpg',
+      backgroundImage: 'assets/images/service_card_4.png',
       backgroundPosition: 'center bottom',
       buttonText: 'Подробнее',
       link: '/services/internship'

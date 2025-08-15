@@ -156,27 +156,27 @@
   gap: 53px;
   background: var(--color-bg-primary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
 
-.stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
 
-.stat-number {
-  font-size: 70px;
-  line-height: 120%;
-  font-weight: 700;
-  color: var(--color-text-accent);
-  margin: 0;
-}
+  .stat-number {
+    font-size: 70px;
+    line-height: 120%;
+    font-weight: 700;
+    color: var(--color-text-accent);
+    margin: 0;
+  }
 
-.stat-description {
-  font-size: 20px;
-  line-height: 142%;
-  font-weight: 600;
-  color: var(--color-text-primary);
-  margin: 0;
+  .stat-description {
+    margin-top: auto;
+    font-size: 20px;
+    line-height: 142%;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
 }
 
 /* Мобильные устройства */

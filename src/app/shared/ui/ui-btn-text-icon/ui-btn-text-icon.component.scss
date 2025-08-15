@@ -25,6 +25,7 @@
     white-space: nowrap;
     background: var(--color-btn-bg-primary);
     color: white;
+    gap: 10px;
 
     &:hover {
       transform: translateY(-2px);
@@ -46,6 +47,11 @@
     white-space: nowrap;
     background: #fff;
     color: var(--color-text-primary);
+    gap: 4px;
+
+    ::ng-deep app-svgs svg path {
+      stroke: var(--color-btn-arrow-red);
+    }
 
     @media (max-width: 768px) {
       display: none;
@@ -63,15 +69,14 @@
   .style-1, .style-2 {
     cursor: pointer;
     transition: all 0.3s ease;
-    border-radius: 25px;
     border: none;
     font-weight: 600;
     font-size: 16px;
     line-height: 100%;;
     letter-spacing: 0;
+    border-radius: 100px;
     display: flex;
     align-items: center;
-    gap: 10px;
 
     &.row-reverse {
       flex-direction: row-reverse;

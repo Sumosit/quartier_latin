@@ -20,8 +20,9 @@ export class ReviewsComponent implements OnInit, OnDestroy {
 
   private animationId?: number;
   private isPaused = false;
-  private scrollSpeed = 0.08; // пикселей в миллисекунду
+  private scrollSpeed = 0.072; // пикселей в миллисекунду
   private lastTimestamp = 0;
+  private direction: 1 | -1 = -1;
 
   reviews: Review[] = [
     {
@@ -56,27 +57,27 @@ export class ReviewsComponent implements OnInit, OnDestroy {
     if (this.animationId) return;
 
     const animate = (timestamp: number) => {
-      if (!this.lastTimestamp) {
-        this.lastTimestamp = timestamp;
-      }
-
+      if (!this.lastTimestamp) this.lastTimestamp = timestamp;
       const deltaTime = timestamp - this.lastTimestamp;
       this.lastTimestamp = timestamp;
 
       if (!this.isPaused && this.reviewsContainer?.nativeElement) {
         const container = this.reviewsContainer.nativeElement;
 
-        // Плавное движенрие на основе времени
-        const scrollDistance = this.scrollSpeed * deltaTime;
-        container.scrollLeft += scrollDistance;
+        const singleSetWidth = container.scrollWidth / 6; // у вас 6 дубликатов
+        const distance = this.scrollSpeed * deltaTime * this.direction;
 
-        // Логика для бесконечной прокрутки
-        const singleSetWidth = container.scrollWidth / 6;
+        // следующий scrollLeft с учётом направления
+        let next = container.scrollLeft + distance;
 
-        // Когда прокрутили один полный набор отзывов, сбрасываем
-        if (container.scrollLeft >= singleSetWidth) {
-          container.scrollLeft = container.scrollLeft - singleSetWidth;
+        // бесконечная прокрутка в обе стороны
+        if (next < 0) {
+          next += singleSetWidth; // ушли влево — прыгаем в конец
+        } else if (next >= singleSetWidth) {
+          next -= singleSetWidth; // ушли вправо — возвращаем в начало
         }
+
+        container.scrollLeft = next;
       }
 
       this.animationId = requestAnimationFrame(animate);

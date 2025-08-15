@@ -1,5 +1,5 @@
 <div class="questions_field">
-  <app-ui-btn-text-icon [btnStyle]="'style-header'" btnText="Партнёры Quartier Latin"></app-ui-btn-text-icon>
+  <app-ui-btn-text-icon [btnStyle]="'style-header'" btnText="Часто задаваемые вопросы"></app-ui-btn-text-icon>
   <div class="questions">
     @for (question of questions; track question; let i = $index) {
       <div class="question" [class.is-open]="question.is_open">
