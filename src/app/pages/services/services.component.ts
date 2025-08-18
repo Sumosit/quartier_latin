@@ -15,14 +15,8 @@ import {ServiceCardsBigComponent} from './service-cards-big/service-cards-big.co
   selector: 'app-services',
   imports: [
     BidComponent,
-    HeroComponent,
-    OrderHelpComponent,
-    PartnersComponent,
-    QuestionsComponent,
     ReviewsComponent,
-    ServiceCardsComponent,
     StatsComponent,
-    SubscribeComponent,
     TabsComponent,
     ServiceCardsBigComponent
   ],

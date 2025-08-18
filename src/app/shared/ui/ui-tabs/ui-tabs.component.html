@@ -1,22 +1,23 @@
 <div class="tabs"
      role="tablist"
      (wheel)="onWheel($event)">
-  <button
-    #tabBtn
-    *ngFor="let t of items; let i = index"
-    class="tab"
-    [class.active]="t.value === active"
-    [class.disabled]="t.disabled"
-    type="button"
-    (click)="!t.disabled && onTabClick(t.value, $event)"
-    (keydown)="onKey($event, i)"
-    [attr.tabindex]="t.disabled ? -1 : 0"
-    [attr.aria-selected]="t.value === active"
-    role="tab">
-    {{ t.label }}
-  </button>
+  @for (t of items; track t; let i = $index) {
+    <button
+      #tabBtn
+      class="tab"
+      [class.active]="t.value === active"
+      [class.disabled]="t.disabled"
+      type="button"
+      (click)="!t.disabled && onTabClick(t.value, $event)"
+      (keydown)="onKey($event, i)"
+      [attr.tabindex]="t.disabled ? -1 : 0"
+      [attr.aria-selected]="t.value === active"
+      role="tab">
+      {{ t.label }}
+    </button>
+  }
   <span class="indicator"
         [style.width.px]="indicatorWidth()"
         [style.transform]="'translateX(' + indicatorLeft() + 'px)'"></span>
-<!--  <div class="line"></div>-->
+  <!--  <div class="line"></div>-->
 </div>

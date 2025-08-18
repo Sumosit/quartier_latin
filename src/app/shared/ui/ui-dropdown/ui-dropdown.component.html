@@ -4,13 +4,11 @@
      [attr.aria-disabled]="disabled"
      [attr.aria-activedescendant]="isOpen && focusedIndex >= 0 ? 'opt-' + focusedIndex : null">
 
-  <!-- «Инпут» -->
   <button type="button" class="control" [disabled]="disabled" (click)="toggle()">
     <span class="value" [class.placeholder]="!labelForValue(value)">
       {{ labelForValue(value) || placeholder }}
     </span>
     <span class="chevron" aria-hidden="true">
-      <!-- простая стрелка, без зависимостей -->
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M19 9L12 16L5 9" stroke="#1E1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
@@ -18,27 +16,34 @@
   </button>
 
   <!-- Панель -->
-  <div class="panel" *ngIf="isOpen" [style.max-height.px]="panelMaxHeight">
-    <div class="panel-scroll">
-      <button *ngIf="!noClear" type="button" class="item clear"
-              (click)="clear()">Очистить</button>
-
-      <button
-        *ngFor="let opt of options; let i = index"
-        type="button"
-        class="item"
-        [id]="'opt-' + i"
-        [class.focused]="i === focusedIndex"
-        [class.selected]="value === valueOf(opt)"
-        (mousemove)="focusedIndex = i"
-        (click)="select(opt)">
-        <span class="label">{{ labelOf(opt) }}</span>
-        <span class="check" *ngIf="value === valueOf(opt)">
-          <svg width="18" height="18" viewBox="0 0 24 24">
-            <path d="M5 12l4 4 10-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </span>
-      </button>
+  @if (isOpen) {
+    <div class="panel" [style.max-height.px]="panelMaxHeight">
+      <div class="panel-scroll">
+        @if (!noClear) {
+          <button type="button" class="item clear"
+                  (click)="clear()">Очистить
+          </button>
+          @for (opt of options; track opt; let i = $index) {
+            <button
+              type="button"
+              class="item"
+              [id]="'opt-' + i"
+              [class.focused]="i === focusedIndex"
+              [class.selected]="value === valueOf(opt)"
+              (mousemove)="focusedIndex = i"
+              (click)="select(opt)">
+              <span class="label">{{ labelOf(opt) }}</span>
+              @if (value === valueOf(opt)) {
+                <span class="check">
+                <svg width="18" height="18" viewBox="0 0 24 24">
+                  <path d="M5 12l4 4 10-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              }
+            </button>
+          }
+        }
+      </div>
     </div>
-  </div>
+  }
 </div>

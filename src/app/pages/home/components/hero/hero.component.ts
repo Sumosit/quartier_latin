@@ -10,7 +10,7 @@ import {UiBtnIconComponent} from '../../../../shared/ui/ui-btn-icon/ui-btn-icon.
   styleUrl: './hero.component.scss',
 })
 export class HeroComponent implements OnInit, OnDestroy {
-  @ViewChild('videoElement') videoElement!: ElementRef<HTMLVideoElement>;
+  @ViewChild('videoElement') videoElement!: ElementRef;
 
   currentVideoIndex = 0;
   currentProgress = 0;
@@ -32,6 +32,10 @@ export class HeroComponent implements OnInit, OnDestroy {
   ];
 
   ngOnInit() {
+    // Запускаем первое видео после инициализации компонента
+    setTimeout(() => {
+      this.playCurrentVideo();
+    }, 0);
   }
 
   ngOnDestroy() {
@@ -75,7 +79,15 @@ export class HeroComponent implements OnInit, OnDestroy {
       const video = this.videoElement.nativeElement;
       video.src = this.videos[this.currentVideoIndex].src;
       video.load();
-      video.play();
+
+      const playPromise = video.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch((error: any) => {
+          console.warn('Автовоспроизведение заблокировано браузером:', error);
+        });
+      }
+
       this.currentProgress = 0;
     }
   }

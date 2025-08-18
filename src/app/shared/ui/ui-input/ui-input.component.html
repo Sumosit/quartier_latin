@@ -20,5 +20,6 @@
   />
 </label>
 
-<!-- показываем текст ошибки только когда реально invalid -->
-<div class="ui-error" *ngIf="invalid && errorText">{{ errorText }}</div>
+@if (invalid && errorText) {
+  <div class="ui-error">{{ errorText }}</div>
+}

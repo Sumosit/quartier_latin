@@ -18,7 +18,6 @@ const NAME_RX = /^[\p{L}\s.'-]{2,}$/u;
     UiBtnTextIconComponent,
     UiInputComponent,
     UiInputDropdownComponent,
-    SvgsComponent,
     UiBtnIconComponent
   ],
   templateUrl: './form-consulation.component.html',
