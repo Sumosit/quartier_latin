@@ -1,6 +1,7 @@
 <form class="bid-form" [formGroup]="form" (ngSubmit)="onSubmit()">
   <div>
     <div class="bid-form__header">Заполни форму</div>
+    <app-ui-btn-icon (click)="modalService.currentModal = ''" btnIcon="cross-small" btnStyle="style-2" btnStatus="small active"></app-ui-btn-icon>
 
     <div class="bid-form__inputs">
       <app-ui-dropdown

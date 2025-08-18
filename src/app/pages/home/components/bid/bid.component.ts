@@ -11,8 +11,6 @@ import {FormConsulationComponent} from '../../../../shared/form-consulation/form
   imports: [
     ReactiveFormsModule,
     UiBtnTextIconComponent,
-    UiInputDropdownComponent,
-    UiInputComponent,
     FormConsulationComponent
   ],
   templateUrl: './bid.component.html',

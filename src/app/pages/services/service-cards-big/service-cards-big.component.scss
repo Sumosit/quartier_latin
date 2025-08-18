@@ -9,24 +9,22 @@
 
 .services {
   display: grid;
-  gap: 16px;
+  gap: 24px;
 
   .service {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: start;
-
-    height: 337px;
-    padding: 20px;
-    border-radius: 20px;
-
-    text-decoration: none;
     overflow: hidden;
-
+    position: relative;
+    padding: 20px;
+    height: 337px;
+    border-radius: 20px;
+    text-decoration: none;
     background-color: #ddd;
     background-repeat: no-repeat;
     background-size: cover;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 32px;
 
     .overlay {
       position: absolute;
@@ -72,13 +70,59 @@
         margin-top: auto;
         display: flex;
         flex-wrap: wrap;
-        gap: 8px;
+        gap: 16px;
       }
     }
 
     app-ui-btn-icon {
       margin-top: auto;
       z-index: 1;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .services {
+    .service {
+      .content {
+        .title {
+          font-size: 26px;
+        }
+        .desc {
+          font-size: 16px;
+          line-height: 130%;
+        }
+
+        .tags {
+          gap: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .services {
+    .service {
+      height: 100%;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .services {
+    gap: 16px;
+    .service {
+      gap: 24px;
+      .content {
+        .title {
+          font-size: 20px;
+        }
+        .desc {
+          font-size: 16px;
+          line-height: 130%;
+        }
+      }
     }
   }
 }

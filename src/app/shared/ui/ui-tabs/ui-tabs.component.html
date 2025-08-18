@@ -1,23 +1,22 @@
-<div class="tabs" role="tablist">
-  <div class="track">
-    <button
-      #tabBtn
-      *ngFor="let t of items; let i = index"
-      class="tab"
-      [class.active]="t.value === active"
-      [class.disabled]="t.disabled"
-      role="tab"
-      type="button"
-      [attr.aria-selected]="t.value === active"
-      [disabled]="t.disabled"
-      (click)="!t.disabled && setActive(t.value)"
-      (keydown)="onKey($event, i)">
-      {{ t.label }}
-    </button>
-
-    <span class="indicator"
-          [style.width.px]="indicatorWidth()"
-          [style.transform]="'translateX(' + indicatorLeft() + 'px)'"></span>
-    <div class="line"></div>
-  </div>
+<div class="tabs"
+     role="tablist"
+     (wheel)="onWheel($event)">
+  <button
+    #tabBtn
+    *ngFor="let t of items; let i = index"
+    class="tab"
+    [class.active]="t.value === active"
+    [class.disabled]="t.disabled"
+    type="button"
+    (click)="!t.disabled && onTabClick(t.value, $event)"
+    (keydown)="onKey($event, i)"
+    [attr.tabindex]="t.disabled ? -1 : 0"
+    [attr.aria-selected]="t.value === active"
+    role="tab">
+    {{ t.label }}
+  </button>
+  <span class="indicator"
+        [style.width.px]="indicatorWidth()"
+        [style.transform]="'translateX(' + indicatorLeft() + 'px)'"></span>
+<!--  <div class="line"></div>-->
 </div>

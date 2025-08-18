@@ -1,7 +1,11 @@
+:host {
+}
+
 .questions_field {
   display: flex;
   flex-direction: column;
   gap: 40px;
+
   .questions {
     display: flex;
     flex-direction: column;
@@ -34,6 +38,7 @@
 
         ::ng-deep app-ui-btn-icon {
           margin-bottom: auto;
+
           app-svgs {
             transition: 0.3s;
             transform: rotate(0);
@@ -64,6 +69,57 @@
         font-weight: 600;
         line-height: 142%;
         color: var(--color-text-primary);
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .questions_field {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    .questions {
+      gap: 16px;
+      .question {
+        .question_header {
+          span {
+            font-size: 20px;
+            line-height: 142%;
+          }
+        }
+
+        .question_answer {
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 132%;
+          color: var(--color-text-primary);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .questions_field {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .questions {
+      gap: 12px;
+      .question {
+        .question_header {
+          span {
+            font-size: 16px;
+            line-height: 130%;
+          }
+        }
+
+        .question_answer {
+          line-height: 130%;
+        }
       }
     }
   }

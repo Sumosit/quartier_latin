@@ -21,6 +21,12 @@
       background: var(--color-bg-primary);
 
       ::ng-deep app-svgs {
+        > div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
         svg path {
           stroke: var(--color-icon-line);
         }
@@ -38,12 +44,28 @@
         background: rgba(19, 19, 19, 0.38);
       }
 
+      &.medium {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+      }
 
       &.small {
-        ::ng-deep app-svgs div {
-          width: initial;
-          height: initial;
-          display: flex;
+        width: 24px;
+        height: 24px;
+        border-radius: 4px;
+      }
+
+      &.responsive {
+        @media (max-width: 1024px) {
+          width: 40px;
+          height: 40px;
+          border-radius: 8px;
+        }
+        @media (max-width: 500px) {
+          width: 24px;
+          height: 24px;
+          border-radius: 4px;
         }
       }
     }
@@ -94,6 +116,28 @@
 
       &:hover:not(:disabled) {
         transform: scale(1.05);
+      }
+
+      &.medium {
+        width: 60px;
+        height: 60px;
+      }
+
+      &.small {
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+      }
+
+      &.responsive {
+        @media (max-width: 768px) {
+          width: 60px;
+          height: 60px;
+        }
+        @media (max-width: 375px) {
+          width: 40px;
+          height: 40px;
+        }
       }
     }
   }

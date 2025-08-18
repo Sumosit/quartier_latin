@@ -11,6 +11,7 @@
 
     @media (max-width: 1024px) {
       font-size: 32px;
+      line-height: 120%;
     }
 
     @media (max-width: 500px) {
@@ -21,6 +22,7 @@
   .style-1 {
     height: 56px;
     padding: 0 24px;
+    font-family: Inter;
     font-weight: 700;
     white-space: nowrap;
     background: var(--color-btn-bg-primary);
@@ -36,6 +38,7 @@
   .style-2 {
     height: 48px;
     padding: 12px 24px;
+    font-family: Inter;
     white-space: nowrap;
     background: #fff;
     color: var(--color-text-primary);
@@ -54,6 +57,7 @@
     user-select: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-family: Inter;
     font-weight: 600;
     font-size: 16px;
     line-height: 100%;;
@@ -82,13 +86,19 @@
     transition: all 0.3s ease;
     height: 51px;
     padding: 0 20px;
+    font-family: Inter;
     font-size: 16px;
     font-weight: 600;
-    line-height: 100%;;
+    line-height: 100%;
     border-radius: 100px;
     display: flex;
     align-items: center;
     color: #807778;
     background: var(--color-bg-primary);
+
+    @media (max-width: 1024px) {
+      font-size: 12px;
+      line-height: 120%;
+    }
   }
 }

@@ -3,6 +3,9 @@ import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angula
 import {UiBtnTextIconComponent} from '../ui/ui-btn-text-icon/ui-btn-text-icon.component';
 import {UiInputComponent} from '../ui/ui-input/ui-input.component';
 import {UiInputDropdownComponent} from '../ui/ui-dropdown/ui-dropdown.component';
+import {SvgsComponent} from '../svgs/svgs.component';
+import {UiBtnIconComponent} from '../ui/ui-btn-icon/ui-btn-icon.component';
+import {ModalService} from '../modal-field/modal.service';
 
 const PHONE_RX = /^[+\d()\s-]{6,20}$/;
 const NAME_RX = /^[\p{L}\s.'-]{2,}$/u;
@@ -14,7 +17,9 @@ const NAME_RX = /^[\p{L}\s.'-]{2,}$/u;
     ReactiveFormsModule,
     UiBtnTextIconComponent,
     UiInputComponent,
-    UiInputDropdownComponent
+    UiInputDropdownComponent,
+    SvgsComponent,
+    UiBtnIconComponent
   ],
   templateUrl: './form-consulation.component.html',
   styleUrl: './form-consulation.component.scss'
@@ -22,7 +27,8 @@ const NAME_RX = /^[\p{L}\s.'-]{2,}$/u;
 export class FormConsulationComponent {
   form: any;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+              protected modalService: ModalService) {
     this.form = this.fb.group({
       contactMethod: [null as 'Телефон' | 'Email' | 'Telegram' | null, Validators.required],
       fullName: ['', [Validators.required, Validators.pattern(NAME_RX), Validators.maxLength(80)]],

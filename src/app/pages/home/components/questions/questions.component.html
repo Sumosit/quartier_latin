@@ -7,9 +7,14 @@
           <span [innerHTML]="question.question"></span>
           <app-ui-btn-icon [btnIcon]="'plus'"
                            [class.active]="question.is_open"
-                           [btnStyle]="question.is_open ? 'style-2 small' : 'style-2'" btnStatus="active"></app-ui-btn-icon>
+                           [isResponsive]="true"
+                           [responsiveMask]="[1, 0, 1]"
+                           [btnStyle]="question.is_open ? 'style-2' : 'style-2'" btnStatus="active"></app-ui-btn-icon>
         </div>
-        <div class="question_answer_wrapper">
+        <div class="question_answer_wrapper"
+             [style.display]="!question.is_open ? 'none' : ''"
+             [style.position]="!question.is_open ? 'absolute' : ''"
+        >
           <div class="question_answer" [innerHTML]="question.answer"></div>
         </div>
       </div>

@@ -3,9 +3,13 @@ import {Component, Input} from '@angular/core';
 export type Icons = '' |
   'arrow-right-big'     |
   'arrow-right'     |
+  'arrow-right-medium'     |
+  'arrow-right-small'     |
   'arrow-left'     |
   'cross'     |
+  'cross-small'     |
   'plus'      |
+  'plus-small'      |
   'menu'      |
   'telegram'  |
   'vk'        |
@@ -24,5 +28,5 @@ export type Icons = '' |
   styleUrl: './svgs.component.scss'
 })
 export class SvgsComponent {
-  @Input() icon: Icons = '';
+  @Input() icon: Icons | string = '';
 }

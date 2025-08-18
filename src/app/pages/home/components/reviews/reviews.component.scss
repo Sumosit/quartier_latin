@@ -18,7 +18,7 @@
       width: 100%;
     }
 
-    > div {
+    &__buttons {
       margin-left: auto;
       display: flex;
       gap: 16px;
@@ -116,6 +116,11 @@
 
   @media (max-width: 1024px) {
     padding: 64px 0 64px 24px;
+    &__header {
+      &__buttons {
+        display: none;
+      }
+    }
   }
 
   @media (max-width: 768px) {

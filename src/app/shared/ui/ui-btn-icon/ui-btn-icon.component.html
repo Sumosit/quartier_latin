@@ -1,3 +1,11 @@
-<div class="{{btnStyle}} {{btnStatus}}">
-  <app-svgs [icon]="btnIcon"></app-svgs>
+<div class="{{btnStyle}} {{btnStatus}} {{btnSize}}"
+     [ngClass]="{
+     'responsive': isResponsive
+     }"
+>
+  @if (isResponsive) {
+    <app-svgs [icon]="responsiveIcon"></app-svgs>
+  } @else {
+    <app-svgs [icon]="btnIcon"></app-svgs>
+  }
 </div>

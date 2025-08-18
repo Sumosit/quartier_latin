@@ -15,4 +15,13 @@
   &.open {
     opacity: 1;
   }
+
+  ::ng-deep app-form-consulation {
+    .bid-form {
+      max-width: 692px;
+      > div app-ui-btn-icon {
+        display: initial !important;
+      }
+    }
+  }
 }
