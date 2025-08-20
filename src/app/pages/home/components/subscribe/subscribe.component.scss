@@ -1,6 +1,6 @@
 :host {
   padding: 0 40px;
-  height: 352px;
+  height: 335px;
 
   .subscribe-field {
     display: flex;
@@ -18,8 +18,9 @@
         position: absolute;
         left: 360px;
         top: 36px;
+        width: 375px;
+        height: 161px;
       }
-
       .subscribe__arrow-2 {
         display: none;
       }
@@ -57,11 +58,12 @@
 
 @media (max-width: 1024px) {
   :host {
+    height: 341px;
     padding: 0 24px;
     .subscribe-field {
       .subscribe {
-        .subscribe__arrow-1 {
-          position: initial;
+        img {
+          //width: 92%;
         }
       }
     }
@@ -77,14 +79,10 @@
       flex-direction: column;
 
       .subscribe {
-        //img {
-        //  position: absolute;
-        //  transform: scaleX(-1) scaleY(-1);
-        //}
+
         .subscribe__arrow-1 {
           display: none;
         }
-
         .subscribe__arrow-2 {
           display: initial;
           position: absolute;
@@ -101,19 +99,8 @@
 
 @media (max-width: 500px) {
   :host {
-
     .subscribe-field {
-
       .subscribe {
-        .subscribe__arrow-1 {
-          display: none;
-        }
-
-        .subscribe__arrow-2 {
-          display: initial;
-          position: absolute;
-          right: 0;
-        }
       }
 
       .socials {

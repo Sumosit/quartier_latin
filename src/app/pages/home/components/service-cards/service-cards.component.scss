@@ -21,6 +21,7 @@
             position: absolute;
             bottom: 0;
             left: 0;
+            width: 371px;
           }
         }
 
@@ -89,6 +90,13 @@
       gap: 24px;
 
       .service-card {
+
+        &.type-text {
+          svg-icon {
+            width: 348px;
+          }
+        }
+
         .card-content {
           .card-title {
             font-weight: 700;

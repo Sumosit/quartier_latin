@@ -5,6 +5,8 @@
 
   .bid-form {
     flex: none;
+    max-width: 692px;
+    width: 100%;
   }
 }
 
@@ -29,6 +31,7 @@
     }
 
     .bid-form {
+      max-width: initial;
       width: 100%;
     }
   }
