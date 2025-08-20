@@ -4,11 +4,13 @@ import {UiBtnTextIconComponent} from "../ui/ui-btn-text-icon/ui-btn-text-icon.co
 import {UiBtnIconComponent} from '../ui/ui-btn-icon/ui-btn-icon.component';
 import {ModalService} from '../modal-field/modal.service';
 import {filter, Subscription, merge} from 'rxjs';
+import {SvgsComponent} from '../svgs/svgs.component';
+import {SvgIconComponent} from 'angular-svg-icon';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, UiBtnTextIconComponent, UiBtnIconComponent],
+  imports: [RouterLink, RouterLinkActive, UiBtnTextIconComponent, UiBtnIconComponent, SvgsComponent, SvgIconComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -23,7 +25,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private router: Router,
     private zone: NgZone,
     protected modalService: ModalService,
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     // Пересоздаём наблюдение и пересчитываем состояние:
@@ -43,14 +46,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.sub?.unsubscribe();
   }
 
-  navigateToHome() { this.router.navigate(['/']); }
-  toggleMobileMenu() { this.isMobileMenuOpen = !this.isMobileMenuOpen; }
+  navigateToHome() {
+    this.router.navigate(['/']);
+  }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
 
   private setupObserver() {
     this.io?.disconnect();
 
     const hero = document.querySelector<HTMLElement>('.hero');
-    if (!hero) { this.solid.set(true); return; }
+    if (!hero) {
+      this.solid.set(true);
+      return;
+    }
 
     // начальный расчёт уже после восстановления скролла
     this.solid.set(!this.isInViewport(hero));
@@ -59,7 +70,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       ([entry]) => {
         this.zone.run(() => this.solid.set(!entry.isIntersecting));
       },
-      { threshold: 0.01 }
+      {threshold: 0.01}
     );
     this.io.observe(hero);
   }

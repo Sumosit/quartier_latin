@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import {UiBtnTextIconComponent} from '../../../../shared/ui/ui-btn-text-icon/ui-btn-text-icon.component';
 import {RouterLink} from '@angular/router';
+import {SvgsComponent} from '../../../../shared/svgs/svgs.component';
+import {SvgIconComponent} from 'angular-svg-icon';
 
 interface ServiceCard {
   id: number;
@@ -19,7 +21,9 @@ interface ServiceCard {
   selector: 'app-service-cards',
   imports: [
     UiBtnTextIconComponent,
-    RouterLink
+    RouterLink,
+    SvgsComponent,
+    SvgIconComponent
   ],
   templateUrl: './service-cards.component.html',
   styleUrl: './service-cards.component.scss'

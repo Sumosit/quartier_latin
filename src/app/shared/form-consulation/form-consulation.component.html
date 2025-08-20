@@ -1,7 +1,7 @@
 <form class="bid-form" [formGroup]="form" (ngSubmit)="onSubmit()">
   <div>
     <div class="bid-form__header">Заполни форму</div>
-    <app-ui-btn-icon (click)="modalService.currentModal = ''" btnIcon="cross-small" btnStyle="style-2" btnStatus="small active"></app-ui-btn-icon>
+    <svg-icon (click)="modalService.currentModal = ''" src="assets/images/icons/cross-9x9.svg"></svg-icon>
 
     <div class="bid-form__inputs">
       <app-ui-dropdown
@@ -38,6 +38,6 @@
   </div>
 
   <span class="bid-form__footer">
-      Нажимая на кнопку, Вы соглашаетесь с&nbsp;<span class="underline"></span>Политикой обработки персональных данных
+      Нажимая на кнопку, Вы соглашаетесь с&nbsp;<span class="underline" routerLink="/user-agreement">Политикой обработки персональных данных</span>
     </span>
 </form>

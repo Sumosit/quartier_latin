@@ -1,5 +1,29 @@
 :host {
+  padding: 40px !important;
+}
 
+:host(.content) {
+  padding: 80px 40px !important;
+
+  @media (max-width: 1024px) {
+    padding: 64px 24px !important;
+  }
+
+  @media (max-width: 500px) {
+    padding: 48px 16px !important;
+  }
+}
+
+:host(.content-v1) {
+  padding: 40px !important;
+
+  @media (max-width: 1024px) {
+    padding: 24px !important;
+  }
+
+  @media (max-width: 500px) {
+    padding: 16px !important;
+  }
 }
 
 .education-section {
@@ -9,7 +33,7 @@
   margin-bottom: 20px;
   overflow: hidden; /* Добавить эту строку */
 
-  .content {
+  .content, .content-v1 {
     height: 100%;
     margin: 0 auto;
     display: flex;
@@ -23,26 +47,45 @@
       top: -24px;
       right: -40px;
     }
+
+    .text-content {
+      height: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      .title {
+        width: 84%;
+        text-align: left;
+        font-size: 40px;
+        font-weight: 700;
+        line-height: 132%;
+        letter-spacing: 0;
+        color: var(--color-text-primary);
+
+        .highlight {
+          color: var(--color-text-accent);
+        }
+      }
+    }
   }
 
-  .text-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+  .content-v1 {
+    .text-content {
+      max-width: 643px;
+      gap: 28px;
 
-    .title {
-      width: 84%;
-      text-align: left;
-      font-size: 40px;
-      font-weight: 700;
-      line-height: 132%;
-      letter-spacing: 0;
-      color: var(--color-text-primary);
-
-      .highlight {
-        color: var(--color-text-accent);
+      app-ui-dropdown {
+        max-width: 395px;
+        width: 100%;
       }
+    }
+
+    .help-peoples {
+      position: absolute;
+      top: -48px;
+      right: 0px;
     }
   }
 }
@@ -60,13 +103,15 @@
 }
 
 @media (max-width: 1024px) {
+  .host {
+    padding: 24px;
+  }
   .education-section {
     height: 318px;
 
-    .content {
+    .content, .content-v1 {
       padding: 24px;
-      flex-direction: column;
-      text-align: center;
+      text-align: left;
 
       .eu-books {
         top: initial;
@@ -78,15 +123,28 @@
           height: 265px;
         }
       }
+
+      .text-content {
+        gap: 28px;
+
+        .title {
+          font-size: 32px;
+          line-height: 120%;
+          width: 88%;
+        }
+
+        app-ui-btn-text-icon {
+          margin-top: auto;
+        }
+      }
     }
 
-    .text-content {
-      gap: 28px;
-
-      .title {
-        font-size: 32px;
-        line-height: 120%;
-        width: 88%;
+    .content-v1 {
+      padding: 16px;
+      .help-peoples {
+        width: 470px;
+        top: 18px;
+        right: -86px;
       }
     }
   }
@@ -95,10 +153,9 @@
 
 @media (max-width: 750px) {
   .education-section {
-    height: 350px;
+    height: 370px;
 
     .content {
-      padding: 16px;
       flex-direction: column;
       text-align: center;
 
@@ -112,31 +169,83 @@
           height: 255px;
         }
       }
+
+      .text-content {
+        .title {
+          font-size: 26px;
+          width: 100%;
+        }
+
+        app-ui-btn-text-icon {
+          margin-top: auto;
+        }
+      }
     }
 
-    .text-content {
-      .title {
-        font-size: 26px;
-        width: 100%;
+    .content-v1 {
+      .help-peoples {
+        width: 470px;
+        top: 74px;
+        right: -86px;
+      }
+    }
+  }
+}
+@media (max-width: 500px) {
+
+  .education-section {
+    height: 480px;
+    }
+}
+
+@media (max-width: 650px) {
+  .host {
+    padding: 16px;
+  }
+
+  .education-section {
+    height: 480px;
+
+    .content, .content-v1 {
+      .text-content {
+        .title {
+          font-size: 25.7px;
+          font-weight: 700;
+          line-height: 120%;
+        }
+      }
+    }
+
+    .content-v1 {
+      .text-content {
+        gap: 0;
+        .title {
+          margin-top: 24px;
+        }
+        app-ui-btn-text-icon {
+          z-index: 1;
+          margin: 20px auto 0;
+        }
       }
 
-      app-ui-btn-text-icon {
-        margin-top: auto;
+      .help-peoples {
+        width: 470px;
+        top: 169px;
+        right: 0;
       }
     }
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 450px) {
   .education-section {
-    height: 480px;
 
-    .content {
-    }
+    .content-v1 {
 
-    .text-content {
-      .title {
-        width: 100%;
+      .help-peoples {
+        width: 470px;
+        top: 169px;
+        left: -60px;
       }
     }
   }
@@ -184,35 +293,37 @@
   }
 }
 
-/* Мобильные устройства */
 @media (max-width: 1024px) {
   .stats-section {
     grid-template-columns: 1fr 1fr;
-  }
 
-  .stat-card {
-    height: 196px;
-    gap: 27px;
+    .stat-card {
+      height: 196px;
+      gap: 27px;
 
-    .stat-number {
-      font-size: 48px;
+      .stat-number {
+        font-size: 48px;
+        font-weight: 700;
+        line-height: 120%;
+      }
+
+      .stat-description {
+        font-size: 16px;
+        line-height: 130%;
+        font-weight: 600;
+      }
     }
+
+    .stat-card:nth-child(3) {
+      grid-column: 1 / -1;
+    }
+
     .stat-description {
       font-size: 16px;
-      line-height: 130%;
-      font-weight: 600;
     }
   }
-
-  /* Третий элемент занимает всю ширину */
-  .stat-card:nth-child(3) {
-    grid-column: 1 / -1;
-  }
-
-  .stat-description {
-    font-size: 16px;
-  }
 }
+
 @media (max-width: 800px) {
   .stats-section {
     grid-template-columns: 1fr;
@@ -223,25 +334,25 @@
   .stats-section {
     grid-template-columns: 1fr;
     gap: 16px;
-  }
 
-  .stat-card {
-    height: 172px;
-    gap: 24px;
-    padding: 16px;
+    .stat-card {
+      height: 172px;
+      gap: 24px;
+      padding: 16px;
 
-    .stat-number {
-      font-size: 40px;
-      line-height: 132%;
+      .stat-number {
+        font-size: 32px;
+        line-height: 120%;
+      }
+
+      .stat-description {
+        font-size: 16px;
+        line-height: 130%;
+      }
     }
 
-    .stat-description {
-      font-size: 16px;
-      line-height: 130%;
+    .stat-card:nth-child(3) {
+      grid-column: 1;
     }
-  }
-
-  .stat-card:nth-child(3) {
-    grid-column: 1;
   }
 }

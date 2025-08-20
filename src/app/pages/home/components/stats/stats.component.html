@@ -1,18 +1,34 @@
 <div class="education-section">
-  <div class="content">
-    <div class="text-content">
-      <h1 class="title">
+  @if (mainSectionType === 0) {
+    <div class="content">
+      <div class="text-content">
+        <h1 class="title">
         <span class="highlight">Образование, языковые курсы
         и&nbsp;профессиональные стажировки
         во&nbsp;Франции,</span> а&nbsp;также в&nbsp;других странах
-        Европы, Северной Америки и&nbsp;по&nbsp;всему миру
-      </h1>
-      <app-ui-btn-text-icon btnText="Узнать о компании"></app-ui-btn-text-icon>
+          Европы, Северной Америки и&nbsp;по&nbsp;всему миру
+        </h1>
+        <app-ui-btn-text-icon btnText="Узнать о компании"></app-ui-btn-text-icon>
+      </div>
+      <div class="eu-books">
+        <img src="assets/images/eu_books.png" alt="">
+      </div>
     </div>
-    <div class="eu-books">
-      <img src="assets/images/eu_books.png" alt="">
+  }
+  @else if (mainSectionType === 1) {
+    <div class="content-v1">
+      <div class="text-content">
+        <app-ui-dropdown dropdownStyle="style-2"
+                         placeholder="Выберите страну для выбора услуг"
+                         [options]="['Страна1','Страна2','Страна3']"></app-ui-dropdown>
+        <h1 class="title">
+          Помогли <span class="tag">более чем 4000</span> студентам поступить
+        </h1>
+        <app-ui-btn-text-icon btnText="Записаться на консультацию"></app-ui-btn-text-icon>
+      </div>
+      <img class="help-peoples" src="assets/images/help-peoples.png" alt="">
     </div>
-  </div>
+  }
 </div>
 
 <div class="stats-section">

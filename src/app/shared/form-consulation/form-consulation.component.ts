@@ -6,6 +6,8 @@ import {UiInputDropdownComponent} from '../ui/ui-dropdown/ui-dropdown.component'
 import {SvgsComponent} from '../svgs/svgs.component';
 import {UiBtnIconComponent} from '../ui/ui-btn-icon/ui-btn-icon.component';
 import {ModalService} from '../modal-field/modal.service';
+import {SvgIconComponent} from 'angular-svg-icon';
+import {RouterLink} from '@angular/router';
 
 const PHONE_RX = /^[+\d()\s-]{6,20}$/;
 const NAME_RX = /^[\p{L}\s.'-]{2,}$/u;
@@ -18,7 +20,9 @@ const NAME_RX = /^[\p{L}\s.'-]{2,}$/u;
     UiBtnTextIconComponent,
     UiInputComponent,
     UiInputDropdownComponent,
-    UiBtnIconComponent
+    SvgsComponent,
+    SvgIconComponent,
+    RouterLink
   ],
   templateUrl: './form-consulation.component.html',
   styleUrl: './form-consulation.component.scss'

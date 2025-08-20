@@ -39,13 +39,13 @@
         ::ng-deep app-ui-btn-icon {
           margin-bottom: auto;
 
-          app-svgs {
+          svg-icon {
             transition: 0.3s;
             transform: rotate(0);
           }
 
           &.active {
-            app-svgs {
+            svg-icon {
               transform: rotate(45deg);
             }
           }

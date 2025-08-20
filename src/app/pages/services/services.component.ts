@@ -10,6 +10,7 @@ import {StatsComponent} from "../home/components/stats/stats.component";
 import {SubscribeComponent} from "../home/components/subscribe/subscribe.component";
 import {TabsComponent} from '../../shared/ui/ui-tabs/ui-tabs.component';
 import {ServiceCardsBigComponent} from './service-cards-big/service-cards-big.component';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-services',
@@ -25,4 +26,7 @@ import {ServiceCardsBigComponent} from './service-cards-big/service-cards-big.co
 })
 export class ServicesComponent {
 
+  constructor(private title: Title) {
+    this.title.setTitle('Услуги')
+  }
 }

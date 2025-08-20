@@ -21,6 +21,7 @@ export type DropdownOption = string | { label: string; value: any };
   }]
 })
 export class UiInputDropdownComponent implements ControlValueAccessor {
+  @Input() dropdownStyle: 'style-1' | 'style-2' = 'style-1'
   @Input() options: DropdownOption[] = [];
   @Input() placeholder = '';
   @Input() disabled = false;

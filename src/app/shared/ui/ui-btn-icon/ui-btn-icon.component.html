@@ -4,8 +4,10 @@
      }"
 >
   @if (isResponsive) {
-    <app-svgs [icon]="responsiveIcon"></app-svgs>
+<!--    <app-svgs [icon]="responsiveIcon"></app-svgs>-->
+    <svg-icon [src]="'/assets/images/icons/' + btnIcon + '.svg'"></svg-icon>
   } @else {
-    <app-svgs [icon]="btnIcon"></app-svgs>
+<!--    <app-svgs [icon]="btnIcon"></app-svgs>-->
+    <svg-icon [src]="'/assets/images/icons/' + btnIcon + '.svg'"></svg-icon>
   }
 </div>

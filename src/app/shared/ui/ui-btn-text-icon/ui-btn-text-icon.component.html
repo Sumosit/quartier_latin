@@ -2,8 +2,8 @@
   @if (btnText) {
     <span [innerHTML]="btnText"></span>
   }
-  @if (btnText && btnIcon) {
-    <app-svgs [icon]="btnIcon"></app-svgs>
+  @if (btnIcon) {
+    <svg-icon [src]="'/assets/images/icons/' + btnIcon + '.svg'"></svg-icon>
   }
   <ng-content></ng-content>
 </div>

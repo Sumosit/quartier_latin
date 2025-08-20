@@ -3,33 +3,49 @@
   user-select: none;
   width: 100%;
   display: block;
-
-  --inp-height: 48px;
-  --inp-padding-x: 12px;
-  --inp-radius: 12px;
-  --inp-font-size: 18px;
-  --inp-font-weight: 500;
-  --inp-line-height: 1; /* 100% */
-  --inp-bg: #fff;
-  --inp-text: var(--color-text-primary);
-  --panel-shadow: 0 10px 24px rgba(0,0,0,.08);
 }
 
-/* корень dropdown */
 .dropdown {
   position: relative;
 
-  &.disabled { opacity: .6; pointer-events: none; }
+  &.style-1 {
+    --inp-height: 48px;
+    --inp-padding-x: 12px;
+    --inp-padding-item: 0 12px;
+    --inp-radius: 12px;
+    --inp-font-size: 18px;
+    --inp-font-weight: 500;
+    --inp-line-height: 132%;
+    --inp-bg: #fff;
+    --inp-text: var(--color-text-primary);
+    --panel-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+  }
+  &.style-2 {
+    --inp-height: 28px;
+    --inp-padding-x: 0px;
+    --inp-padding-item: 0 12px;
+    --inp-font-size: 20px;
+    --inp-font-weight: 600;
 
-  /* «инпут» */
+    @media (max-width: 500px) {
+      --inp-font-size: 16px;
+      --inp-line-height: 120%;
+    }
+  }
+
+  &.disabled {
+    opacity: .6;
+    pointer-events: none;
+  }
+
   .control {
     width: 100%;
     height: var(--inp-height);
     background: var(--inp-bg);
     color: var(--inp-text);
-    border: none;                   /* как у input в форме */
+    border: none;
     border-radius: var(--inp-radius);
-    padding: 0 calc(var(--inp-padding-x) + 24px) 0 var(--inp-padding-x); /* + место под стрелку */
+    padding: 0 calc(var(--inp-padding-x) + 24px) 0 var(--inp-padding-x);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -40,9 +56,11 @@
     line-height: var(--inp-line-height);
     outline: none;
 
-    /* без свето-рамки, чтобы совпадало со входными инпутами */
     &:focus,
-    &:focus-visible { outline: none; box-shadow: none; }
+    &:focus-visible {
+      outline: none;
+      box-shadow: none;
+    }
 
     .value {
       overflow: hidden;
@@ -50,7 +68,6 @@
       text-overflow: ellipsis;
 
       &.placeholder {
-        /* в твоей форме плейсхолдер тем же цветом */
         color: var(--inp-text);
       }
     }
@@ -68,27 +85,31 @@
     }
   }
 
-  &.open .chevron { transform: rotate(180deg); }
+  &.open .chevron {
+    transform: rotate(180deg);
+  }
 
-  /* выпадающая панель */
   .panel {
     position: absolute;
     left: 0;
     right: 0;
     top: calc(100% + 8px);
     background: #fff;
-    border: none;                       /* без рамки, как поля ввода */
+    border: none;
     border-radius: var(--inp-radius);
     box-shadow: var(--panel-shadow);
     z-index: 50;
     overflow: hidden;
 
-    .panel-scroll { max-height: 260px; overflow: auto; }
+    .panel-scroll {
+      max-height: 260px;
+      overflow: auto;
+    }
 
     .item {
       width: 100%;
       min-height: 40px;
-      padding: 10px var(--inp-padding-x);
+      padding: var(--inp-padding-item);
       border: 0;
       background: transparent;
       text-align: left;
@@ -102,11 +123,21 @@
       line-height: var(--inp-line-height);
       transition: background .12s ease;
 
-      &:hover, &.focused { background: #f3f4f6; } /* легкий hover */
-      &.selected { font-weight: 600; }
-      &.clear { color: #6b7280; } /* серый для «Очистить» */
+      &:hover, &.focused {
+        background: #f3f4f6;
+      }
 
-      .check { margin-left: 8px; }
+      &.selected {
+        font-weight: 600;
+      }
+
+      &.clear {
+        color: #6b7280;
+      }
+
+      .check {
+        margin-left: 8px;
+      }
     }
   }
 }

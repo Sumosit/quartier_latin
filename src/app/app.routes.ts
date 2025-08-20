@@ -4,6 +4,7 @@ import {ServicesComponent} from './pages/services/services.component';
 import {EducationComponent} from './pages/education/education.component';
 import {AccommodationComponent} from './pages/accommodation/accommodation.component';
 import {AboutComponent} from './pages/about/about.component';
+import {UserAgreementComponent} from './pages/user-agreement/user-agreement.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,10 @@ export const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'user-agreement',
+    component: UserAgreementComponent
   },
   {
     path: '**',

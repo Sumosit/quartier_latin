@@ -9,6 +9,7 @@ import {QuestionsComponent} from './components/questions/questions.component';
 import {ReviewsComponent} from './components/reviews/reviews.component';
 import {SubscribeComponent} from './components/subscribe/subscribe.component';
 import {BidComponent} from './components/bid/bid.component';
+import {Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -29,4 +30,7 @@ import {BidComponent} from './components/bid/bid.component';
 })
 export class HomeComponent {
 
+  constructor(private title: Title) {
+    this.title.setTitle('Главная')
+  }
 }

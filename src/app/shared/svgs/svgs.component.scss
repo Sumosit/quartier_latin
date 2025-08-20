@@ -1,5 +1,7 @@
 :host {
   div {
+    user-select: none;
+    cursor: pointer;
     width: 24px;
     height: 24px;
     display: flex;
