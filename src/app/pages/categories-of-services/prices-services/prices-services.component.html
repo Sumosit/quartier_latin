@@ -1,0 +1,33 @@
+<div class="prices-services-field">
+  <div class="prices-services-field__header">
+    <app-ui-btn-text-icon btnStyle="style-header">
+    <span><span class="tag">Пакеты услуг</span> по&nbsp;адаптации
+Комфортное пребывание во&nbsp;Франции</span>
+    </app-ui-btn-text-icon>
+    <img src="assets/images/services-package.png" alt="">
+  </div>
+  <div class="cards">
+    <article class="card" [class.highlighted]="p.highlighted" *ngFor="let p of packages">
+      <header>
+        <h5>{{ p.name }}</h5>
+        <div class="badge" *ngIf="p.badge">{{ p.badge }}</div>
+      </header>
+
+      <div class="features">
+        <div class="feature" *ngFor="let f of p.features">
+          <app-ui-checkbox [checked]="false" [uncheckedValue]="true"></app-ui-checkbox>
+          <h6>{{ f }}</h6>
+        </div>
+      </div>
+
+      <footer>
+        <div class="price-info">
+          <div class="price">{{ p.priceEUR }} €</div>
+          <!--        <div class="price">{{ p.priceEUR | number:'1.0-0' }} €</div>-->
+          <div class="hours">{{ p.hours }} часов работы</div>
+        </div>
+        <app-ui-btn-text-icon btnText="Заказать"></app-ui-btn-text-icon>
+      </footer>
+    </article>
+  </div>
+</div>

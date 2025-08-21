@@ -5,6 +5,7 @@ import {EducationComponent} from './pages/education/education.component';
 import {AccommodationComponent} from './pages/accommodation/accommodation.component';
 import {AboutComponent} from './pages/about/about.component';
 import {UserAgreementComponent} from './pages/user-agreement/user-agreement.component';
+import {CategoriesOfServicesComponent} from './pages/categories-of-services/categories-of-services.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,10 @@ export const routes: Routes = [
   {
     path: 'user-agreement',
     component: UserAgreementComponent
+  },
+  {
+    path: 'services/categories-of-services',
+    component: CategoriesOfServicesComponent
   },
   {
     path: '**',

@@ -1,0 +1,100 @@
+:host {
+  --cb-size: 28px;
+  --cb-radius: 4px;
+  --cb-border: 1px;
+  --cb-bg: #fff;
+  --cb-border-color: var(--color-checkbox-bg-secondary);
+  --cb-border-color-checked: var(--color-checkbox-bg-accent);
+  --cb-bg-checked: var(--color-checkbox-bg-accent);
+  --cb-tick: #fff;
+
+  display: inline-flex;
+  font: inherit;
+}
+
+.ui-checkbox {
+  display: inline-grid;
+  grid-template-columns: var(--cb-size) 1fr;
+  align-items: center;
+  //gap: 8px;
+  cursor: pointer;
+  user-select: none;
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: .6;
+  }
+}
+
+.ui-checkbox__native {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+.ui-checkbox__box {
+  position: relative;
+  width: var(--cb-size);
+  height: var(--cb-size);
+  border-radius: var(--cb-radius);
+  border: var(--cb-border) solid var(--cb-border-color);
+  background: var(--cb-bg);
+  display: grid;
+  place-items: center;
+  transition: border-color .12s ease, background-color .12s ease, box-shadow .12s ease;
+}
+
+.ui-checkbox__icon {
+  width: 100%;
+  height: 100%;
+  padding: 3px;
+}
+
+.check {
+  fill: none;
+  stroke: var(--cb-tick);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0;
+  transform: scale(.6);
+  transform-origin: center;
+  transition: opacity .12s ease, transform .12s ease;
+}
+
+.indeterminate {
+  fill: var(--cb-tick);
+  opacity: 0;
+  transition: opacity .12s ease;
+}
+
+.ui-checkbox__native:checked + .ui-checkbox__box {
+  background: var(--cb-bg-checked);
+  border-color: var(--cb-border-color-checked);
+}
+
+.ui-checkbox__native:checked + .ui-checkbox__box .check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ui-checkbox__native:indeterminate + .ui-checkbox__box {
+  background: var(--cb-bg-checked);
+  border-color: var(--cb-border-color-checked);
+}
+
+.ui-checkbox__native:indeterminate + .ui-checkbox__box .indeterminate {
+  opacity: 1;
+}
+
+.ui-checkbox__label {
+  line-height: 1.25;
+}
+
+.ui-checkbox__hint {
+  display: block;
+  color: #6b7280;
+  margin-left: calc(var(--cb-size) + 8px);
+}

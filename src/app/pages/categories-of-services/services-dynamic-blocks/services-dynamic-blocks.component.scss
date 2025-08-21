@@ -1,0 +1,220 @@
+@use 'mixins' as *;
+
+:host {
+  padding: 80px 40px;
+  @media (max-width: 1024px) {
+    padding: 64px 24px;
+  }
+  @media (max-width: 500px) {
+    padding: 48px 16px;
+  }
+}
+
+.services-dynamic-blocks-field {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  .blocks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .block-row {
+      display: flex;
+      gap: 20px;
+      align-items: stretch; // Возвращаем stretch для одинаковой высоты в строке
+
+      // Тип строки 1: 16/9 + 5/4
+      &.row-type-1 {
+        .dynamic-block {
+          &.ratio-16-9 {
+            flex: 3;
+            aspect-ratio: 16/9; // 16/9 определяет высоту строки
+          }
+
+          &.ratio-5-4 {
+            flex: 2;
+            aspect-ratio: unset; // Отключаем aspect-ratio
+            // Высота будет определяться через stretch от 16/9 блока
+          }
+        }
+      }
+
+      // Тип строки 2: 5/4 + 16/9
+      &.row-type-2 {
+        .dynamic-block {
+          &.ratio-5-4 {
+            flex: 2;
+            aspect-ratio: unset; // Отключаем aspect-ratio
+            // Высота будет определяться через stretch от 16/9 блока
+          }
+
+          &.ratio-16-9 {
+            flex: 3;
+            aspect-ratio: 16/9; // 16/9 определяет высоту строки
+          }
+        }
+      }
+
+      // Тип строки 3: 1/1 + 1/1 + 1/1
+      &.row-type-3 {
+        .dynamic-block {
+          &.ratio-1-1 {
+            flex: 1;
+            aspect-ratio: 1/1;
+          }
+        }
+      }
+
+      // Планшетные строки - максимум 2 блока 1/1 в строке (501-1024px)
+      &.row-tablet-two {
+        .dynamic-block {
+          flex: 1;
+          aspect-ratio: 1/1;
+          max-width: calc(50% - 10px); // Максимум половина ширины
+        }
+      }
+
+      // Мобильные строки - 1 блок 1/1 на строку (≤500px)
+      &.row-mobile-single {
+        .dynamic-block {
+          width: 100%;
+          aspect-ratio: 1/1;
+        }
+      }
+    }
+
+    .dynamic-block {
+      transition: all 0.3s ease;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+
+      .block-content {
+        width: 100%;
+        height: 100%;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: left;
+        color: white;
+        position: relative;
+
+        .block-header {
+          h3 {
+            margin: 0 0 10px 0;
+            @include heading-5
+          }
+
+          p {
+            margin-top: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 130%;
+          }
+        }
+
+        .block-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          margin-top: 15px;
+
+          .price {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 120%;
+          }
+        }
+
+        .aspect-ratio-label {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(10px);
+          padding: 4px 8px;
+          border-radius: 6px;
+          font-size: 0.7rem;
+          font-weight: 500;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+  }
+
+  .regenerate-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .services-dynamic-blocks-field {
+    gap: 24px;
+
+    .blocks-container {
+      gap: 20px;
+
+      .block-row {
+        gap: 20px;
+      }
+
+      .dynamic-block {
+        .block-content {
+          .block-header {
+            h3 {
+              margin: 0 0 10px 0;
+              @include heading-6
+            }
+          }
+
+          .block-footer {
+            .price {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .services-dynamic-blocks-field {
+    .blocks-container {
+      gap: 16px;
+
+      .block-row {
+        gap: 16px;
+      }
+
+      .block-footer {
+        .price {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

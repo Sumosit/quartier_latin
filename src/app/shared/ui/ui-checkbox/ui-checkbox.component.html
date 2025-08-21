@@ -1,0 +1,31 @@
+<label class="ui-checkbox" [class.disabled]="disabled" [attr.for]="id">
+  @if (!uncheckedValue) {
+    <input
+      #inputEl
+      type="checkbox"
+      class="ui-checkbox__native"
+      [id]="id"
+      [name]="name"
+      [checked]="checked"
+      [disabled]="disabled"
+      [required]="required"
+      [attr.aria-describedby]="ariaDescribedBy"
+      (change)=" handleInputChange($event)"
+      (blur)="handleBlur()"
+    />
+  } @else {
+    <input
+      #inputEl
+      type="checkbox"
+      class="ui-checkbox__native"
+      [checked]="true"
+    />
+  }
+
+  <span class="ui-checkbox__box" (click)="toggle($event)" aria-hidden="true">
+    <svg-icon src="/assets/images/icons/checkbox.svg"></svg-icon>
+  </span>
+
+  <span class="ui-checkbox__label" *ngIf="label">{{ label }}</span>
+  <small class="ui-checkbox__hint" *ngIf="hint">{{ hint }}</small>
+</label>
