@@ -1,31 +1,29 @@
 <div class="services-dynamic-blocks-field">
   <app-ui-btn-text-icon btnText="Адаптация на месте" btnStyle="style-header"></app-ui-btn-text-icon>
   <div class="blocks-container">
-    <div
-      *ngFor="let row of rows; trackBy: trackByRowFn"
-      class="block-row"
-      [class]="row.cssClass"
-    >
-      <div
-        *ngFor="let block of row.blocks; trackBy: trackByBlockFn"
-        class="dynamic-block"
-        [class]="block.cssClass"
-        [style.background-color]="block.backgroundColor"
+    @for (row of rows; track row) {
+      <div class="block-row"
+           [class]="row.cssClass"
       >
-        <div class="block-content">
-<!--          <div class="aspect-ratio-label">{{ block.aspectRatio }}</div>-->
+        @for (block of row.blocks; track block) {
+          <div class="dynamic-block"
+               [class]="block.cssClass"
+               [style.background-color]="block.backgroundColor">
+            <div class="block-content">
+              <div class="block-header">
+                <h5>{{ block.title }}</h5>
+                <p>{{ block.description }}</p>
+              </div>
 
-          <div class="block-header">
-            <h5>{{ block.title }}</h5>
-            <p>{{ block.description }}</p>
+              <div class="block-footer">
+                <div class="price" [innerHTML]="block.price"></div>
+                <app-ui-btn-text-icon btnText="Заказать услугу" btnIcon="arrow-right"
+                                      btnStyle="style-2"></app-ui-btn-text-icon>
+              </div>
+            </div>
           </div>
-
-          <div class="block-footer">
-            <div class="price" [innerHTML]="block.price"></div>
-            <app-ui-btn-text-icon btnText="Заказать услугу" btnIcon="arrow-right" btnStyle="style-2"></app-ui-btn-text-icon>
-          </div>
-        </div>
+        }
       </div>
-    </div>
+    }
   </div>
 </div>

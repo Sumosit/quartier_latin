@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {DecimalPipe, NgForOf, NgIf} from '@angular/common';
 import {UiCheckboxComponent} from '../../../shared/ui/ui-checkbox/ui-checkbox.component';
 import {UiBtnTextIconComponent} from '../../../shared/ui/ui-btn-text-icon/ui-btn-text-icon.component';
+import {OneLineAlignDirective} from '../../../shared/directives/one-line-align.directive';
 
 export interface AdaptationPackage {
   key: 'econom' | 'standard' | 'premium';
@@ -81,7 +82,8 @@ export const PACKAGES: AdaptationPackage[] = [
     NgForOf,
     NgIf,
     UiCheckboxComponent,
-    UiBtnTextIconComponent
+    UiBtnTextIconComponent,
+    OneLineAlignDirective
   ],
   templateUrl: './prices-services.component.html',
   styleUrl: './prices-services.component.scss'

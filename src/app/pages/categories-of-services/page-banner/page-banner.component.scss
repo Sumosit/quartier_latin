@@ -19,6 +19,11 @@
     display: flex;
     gap: 8px;
 
+    a {
+      text-decoration: none;
+      color: var(--color-text-path);
+    }
+
     .dot {
       width: 25px;
       height: 21px;
@@ -33,7 +38,7 @@
   .info {
     margin-top: 32px;
 
-    .heading-7 {
+    h6 {
       margin-top: 12px;
       max-width: 515px;
       width: 100%;
@@ -53,10 +58,25 @@
   .page-banner-field {
     height: 318px;
     padding: 24px;
+    .path {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 135%;
+
+      .dot {
+        width: 18px;
+        height: 16px;
+      }
+    }
 
     .info {
+      margin-top: 39px;
       h1 {
         @include heading-4;
+      }
+
+      h6 {
+        margin-top: 8px;
       }
     }
   }
@@ -69,5 +89,13 @@
 
   .page-banner-field {
     height: 601px;
+
+    .info {
+      margin-top: 39px;
+
+      h6 {
+        margin-top: 12px;
+      }
+    }
   }
 }

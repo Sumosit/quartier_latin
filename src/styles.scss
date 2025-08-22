@@ -78,6 +78,7 @@
   --color-text-accent: #1D62ED;
   --color-text-secondary: #A4A4A4;
   --color-text-secondary-1: #797979;
+  --color-text-path: #554F4F;
 
   --color-icon-line: #BFBABA;
   --color-icon-line-1: #fff;
@@ -144,7 +145,7 @@ svg-icon {
 .tag {
   width: fit-content;
   height: 59px;
-  padding: 6px 10px 10px;
+  padding: 3px 15px 5px 15px;
   font-size: 40px;
   font-weight: 700;
   line-height: 164%;
@@ -155,11 +156,14 @@ svg-icon {
   color: white;
 
   @media (max-width: 1024px) {
+    padding: 1px 14px 3px 14px;;
     font-size: 32px;
   }
 
   @media (max-width: 500px) {
+    padding: 1px 13px 3px 13px;
     font-size: 26px;
+    line-height: 120%;
   }
 }
 

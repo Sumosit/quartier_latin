@@ -1,10 +1,18 @@
 <div class="page-banner-field">
   <div class="path">
-    <span>Главная</span>
-    <span class="dot">•</span>
-    <span>Услуги</span>
-    <span class="dot">•</span>
-    <span class="current">Адаптация на месте</span>
+    @for (p of paths; track p; let last = $last) {
+      <span [class.current]="p.current">
+        @if (p.link && !p.current) {
+          <a [routerLink]="p.link">{{ p.label }}</a>
+        }
+        @else {
+          <span>{{ p.label }}</span>
+        }
+      </span>
+      @if (!last) {
+        <span class="dot">•</span>
+      }
+    }
   </div>
   <div class="info">
     <h1>Адаптация на месте</h1>

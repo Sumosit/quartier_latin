@@ -141,6 +141,7 @@
 
     .content-v1 {
       padding: 16px;
+
       .help-peoples {
         width: 470px;
         top: 18px;
@@ -191,11 +192,12 @@
     }
   }
 }
+
 @media (max-width: 500px) {
 
   .education-section {
     height: 480px;
-    }
+  }
 }
 
 @media (max-width: 650px) {
@@ -209,6 +211,38 @@
     .content, .content-v1 {
       .text-content {
         .title {
+        }
+      }
+    }
+
+    .content-v1 {
+      .text-content {
+        gap: 0;
+
+        .title {
+          margin-top: 24px;
+        }
+
+        app-ui-btn-text-icon {
+          z-index: 1;
+          margin-top: 20px;
+        }
+      }
+
+      .help-peoples {
+        width: 470px;
+        top: 169px;
+        right: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .education-section {
+    .content, .content-v1 {
+      .text-content {
+        .title {
           font-size: 25.7px;
           font-weight: 700;
           line-height: 120%;
@@ -218,20 +252,13 @@
 
     .content-v1 {
       .text-content {
-        gap: 0;
+
         .title {
-          margin-top: 24px;
         }
+
         app-ui-btn-text-icon {
-          z-index: 1;
           margin: 20px auto 0;
         }
-      }
-
-      .help-peoples {
-        width: 470px;
-        top: 169px;
-        right: 0;
       }
     }
   }
@@ -257,6 +284,16 @@
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
+
+  &.v1 {
+    .stat-card {
+      gap: 16px;
+
+      .stat-description {
+        margin-top: initial;
+      }
+    }
+  }
 
   .stat-card {
     padding: 28px;
@@ -297,6 +334,16 @@
   .stats-section {
     grid-template-columns: 1fr 1fr;
 
+    &.v1 {
+      grid-template-columns: 1fr 1fr 1fr;
+
+      .stat-card {
+        grid-column: initial !important;
+        height: initial;
+        gap: 48px;
+      }
+    }
+
     .stat-card {
       height: 196px;
       gap: 27px;
@@ -327,13 +374,48 @@
 @media (max-width: 800px) {
   .stats-section {
     grid-template-columns: 1fr;
-  }
-}
 
-@media (max-width: 500px) {
-  .stats-section {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    &.v1 {
+      grid-template-columns: 1fr 1fr 1fr;
+
+      .stat-card {
+        grid-column: initial !important;
+        height: initial;
+      }
+    }
+  }
+  @media (max-width: 640px) {
+    .stats-section {
+    &.v1 {
+      grid-template-columns: 1fr 1fr;
+
+      .stat-card {
+        gap: 12px;
+        padding: 16px;
+
+        &:nth-child(3) {
+          grid-column: 1 / -1 !important;
+        }
+
+        .stat-number {
+          font-size: 32px;
+          line-height: 120%;
+        }
+
+        .stat-description {
+          font-size: 16px;
+          line-height: 130%;
+        }
+      }
+    }
+  }
+    }
+
+  @media (max-width: 500px) {
+    .stats-section {
+      grid-template-columns: 1fr;
+
+    }
 
     .stat-card {
       height: 172px;

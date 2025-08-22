@@ -2,12 +2,7 @@
   @if (mainSectionType === 0) {
     <div class="content">
       <div class="text-content">
-        <h1 class="title">
-        <span class="highlight">Образование, языковые курсы
-        и&nbsp;профессиональные стажировки
-        во&nbsp;Франции,</span> а&nbsp;также в&nbsp;других странах
-          Европы, Северной Америки и&nbsp;по&nbsp;всему миру
-        </h1>
+        <h1 class="title" [innerHTML]="title"></h1>
         <app-ui-btn-text-icon btnText="Узнать о компании"></app-ui-btn-text-icon>
       </div>
       <div class="eu-books">
@@ -21,9 +16,7 @@
         <app-ui-dropdown dropdownStyle="style-2"
                          placeholder="Выберите страну для выбора услуг"
                          [options]="['Страна1','Страна2','Страна3']"></app-ui-dropdown>
-        <h1 class="title">
-          Помогли <span class="tag">более чем 4000</span> студентам поступить
-        </h1>
+        <h1 class="title" [innerHTML]="title"></h1>
         <app-ui-btn-text-icon btnText="Записаться на консультацию"></app-ui-btn-text-icon>
       </div>
       <img class="help-peoples" src="assets/images/help-peoples.png" alt="">
@@ -31,31 +24,9 @@
   }
 </div>
 
-<div class="stats-section">
-  <div class="stat-card">
-    <div class="stat-number">&gt;12&nbsp;лет</div>
-    <div class="stat-description">
-      Помогаем студентам получить<br>
-      образование во&nbsp;Франции<br>
-      и&nbsp;в&nbsp;других странах
-    </div>
-  </div>
-
-  <div class="stat-card">
-    <div class="stat-number">&gt;900</div>
-    <div class="stat-description">
-      Партнёров и&nbsp;учебных<br>
-      заведений по&nbsp;всему миру
-    </div>
-  </div>
-
-  <div class="stat-card">
-    <div class="stat-number">&gt;4000</div>
-    <div class="stat-description">
-      Клиентов довольны нашими
-      услугами: от&nbsp;подбора учебного
-      заведения до&nbsp;помощи
-      в&nbsp;адаптации
-    </div>
+<div class="stats-section {{'v' + mainSectionType}}">
+  <div class="stat-card" *ngFor="let s of stats">
+    <div class="stat-number" [innerHTML]="s.number"></div>
+    <div class="stat-description" [innerHTML]="s.description"></div>
   </div>
 </div>

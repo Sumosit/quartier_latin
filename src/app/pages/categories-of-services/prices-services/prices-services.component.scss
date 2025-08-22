@@ -63,7 +63,12 @@
           align-items: flex-start;
           gap: 16px;
 
+          &.feature--one-line {
+            align-items: center;
+          }
+
           h6 {
+            margin: 0;
             font-size: 16px;
             font-weight: 600;
             line-height: 130%;
@@ -140,6 +145,12 @@
 
       .card {
         width: 100%;
+
+        .features {
+          .feature {
+
+          }
+        }
       }
     }
   }

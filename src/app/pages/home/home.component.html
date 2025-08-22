@@ -1,6 +1,9 @@
 <main>
   <app-hero></app-hero>
-  <app-stats></app-stats>
+  <app-stats [mainSectionType]="0"
+             [title]="stats_title"
+             [stats]="statsData"
+  ></app-stats>
   <app-order-help></app-order-help>
   <app-service-cards></app-service-cards>
   <app-partners></app-partners>

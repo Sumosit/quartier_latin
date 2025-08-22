@@ -16,7 +16,7 @@
       <div class="features">
         <div class="feature" *ngFor="let f of p.features">
           <app-ui-checkbox [checked]="false" [uncheckedValue]="true"></app-ui-checkbox>
-          <h6>{{ f }}</h6>
+          <h6 appOneLineAlign>{{ f }}</h6>
         </div>
       </div>
 

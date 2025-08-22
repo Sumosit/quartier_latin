@@ -1,5 +1,8 @@
 <main class="header-margin">
-  <app-stats [mainSectionType]="1"></app-stats>
+  <app-stats [mainSectionType]="1"
+             [title]="statsTitle"
+             [stats]="statsData"
+  ></app-stats>
   <app-ui-tabs [items]="[
     {label:'Образование', value:'edu'},
     {label:'Изучение языка', value:'lang'},
