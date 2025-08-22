@@ -85,12 +85,15 @@
   .services {
     .service {
       .content {
-        .title {
-          font-size: 26px;
-        }
-        .desc {
-          font-size: 16px;
-          line-height: 130%;
+        .title_desc {
+          .title {
+            font-size: 26px;
+          }
+
+          .desc {
+            font-size: 16px;
+            line-height: 130%;
+          }
         }
 
         .tags {
@@ -105,6 +108,7 @@
   .services {
     .service {
       height: 100%;
+      padding: 24px;
     }
   }
 }
@@ -112,15 +116,21 @@
 @media (max-width: 500px) {
   .services {
     gap: 16px;
+
     .service {
-      gap: 24px;
+      padding: 16px;
+      gap: 0;
+
       .content {
-        .title {
-          font-size: 20px;
-        }
-        .desc {
-          font-size: 16px;
-          line-height: 130%;
+        .title_desc {
+          .title {
+            font-size: 20px;
+          }
+
+          .desc {
+            font-size: 16px;
+            line-height: 130%;
+          }
         }
       }
     }

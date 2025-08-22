@@ -25,6 +25,14 @@
       gap: 20px;
       align-items: stretch; // Возвращаем stretch для одинаковой высоты в строке
 
+      .dynamic-block {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+      }
+
       // Тип строки 1: 16/9 + 5/4
       &.row-type-1 {
         .dynamic-block {
