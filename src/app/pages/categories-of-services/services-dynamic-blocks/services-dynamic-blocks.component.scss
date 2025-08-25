@@ -32,6 +32,12 @@
         }
       }
 
+      &.row-medium-single {
+        .ratio-16-9 {
+          aspect-ratio: 16/9;
+        }
+      }
+
       // Тип строки 1: 16/9 + 5/4
       &.row-type-1 {
         .dynamic-block {
@@ -135,6 +141,8 @@
             font-size: 32px;
             font-weight: 700;
             line-height: 120%;
+            &.long-price-text {
+            }
           }
         }
 
@@ -199,7 +207,10 @@
 
           .block-footer {
             .price {
-              font-size: 16px;
+              font-size: 26px;
+              &.long-price-text {
+                font-size: 16px;
+              }
             }
           }
         }
@@ -212,6 +223,12 @@
   .services-dynamic-blocks-field {
     .blocks-container {
       gap: 16px;
+
+      .dynamic-block {
+        .block-content {
+          padding: 16px;
+        }
+      }
 
       .block-row {
         gap: 16px;

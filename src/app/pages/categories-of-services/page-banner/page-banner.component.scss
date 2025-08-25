@@ -5,12 +5,21 @@
 }
 
 .page-banner-field {
+  position: relative;
   height: 375px;
   padding: 32px;
   border-radius: 20px;
   background-color: var(--color-bg-primary);
   display: flex;
   flex-direction: column;
+
+  img {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    width: 451px;
+    height: 451px;
+  }
 
   .path {
     font-size: 16px;
@@ -56,8 +65,17 @@
   }
 
   .page-banner-field {
+    overflow: hidden;
     height: 318px;
     padding: 24px;
+
+    img {
+      top: 23px;
+      right: -54px;
+      width: 300px;
+      height: 300px;
+    }
+
     .path {
       font-size: 12px;
       font-weight: 500;
@@ -71,6 +89,8 @@
 
     .info {
       margin-top: 39px;
+      max-width: 476px;
+      width: 100%;
       h1 {
         @include heading-4;
       }
@@ -90,12 +110,28 @@
   .page-banner-field {
     height: 601px;
 
+    img {
+      top: 315px;
+      right: -49px;
+      width: 300px;
+      height: 300px;
+    }
+
     .info {
-      margin-top: 39px;
+      margin-top: 22px;
+
+      h1 {
+        @include heading-5;
+      }
 
       h6 {
         margin-top: 12px;
+        line-height: 130%;
       }
+    }
+
+    app-ui-btn-text-icon {
+      margin: 24px auto 0;
     }
   }
 }

@@ -1,0 +1,166 @@
+.mm {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1100; // выше .header
+
+  .mm__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .4);
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+
+  .mm__panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(88vw, 380px);
+    background: var(--color-bg-header);
+    backdrop-filter: blur(20px);
+    color: #fff;
+    transform: translateX(100%);
+    transition: transform .25s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 24px;
+
+    .mm__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      svg-icon {
+        margin-top: 10px;
+        margin-left: auto;
+      }
+    }
+
+    .mm__nav {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin: 24px 0 20px;
+
+      a {
+        color: rgba(255, 255, 255, .9);
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 130%;
+        border-radius: 10px;
+        transition: background .2s ease, color .2s ease;
+      }
+
+      // Стили для аккордеона
+      .mm__accordion {
+        border: none;
+        background: transparent;
+        color: rgba(255, 255, 255, .9);
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 130%;
+        border-radius: 10px;
+        transition: background .2s ease, color .2s ease;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        width: 100%;
+        text-align: left;
+
+        //&:hover {
+        //  color: #fff;
+        //  background: rgba(255, 255, 255, .08);
+        //}
+
+        .mm__chev {
+          transition: transform .2s ease;
+          font-size: 14px;
+          opacity: 0.7;
+
+          ::ng-deep {
+            svg {
+              path {
+                stroke: #ffffff;
+              }
+            }
+          }
+
+          &.open {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      .mm__submenu {
+        overflow: hidden;
+        transition: max-height .3s ease-out;
+        display: none;
+        max-height: 0;
+        margin-top: 4px;
+        //margin-left: 4px;
+
+        &.open {
+          max-height: 300px; // достаточно большое значение для всех пунктов
+          display: flex;
+          flex-direction: column;
+        }
+
+        a {
+          font-size: 14px;
+          font-weight: 500;
+          padding: 8px 8px;
+          opacity: 0.8;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    .mm__lang {
+      margin-top: auto;
+      padding: 12px 8px;
+
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      span {
+        opacity: .8;
+        margin-right: 12px;
+      }
+
+      select {
+        border: none;
+        background: transparent;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.mm--open {
+    pointer-events: auto;
+
+    .mm__backdrop {
+      opacity: 1;
+    }
+
+    .mm__panel {
+      transform: translateX(0);
+    }
+  }
+}
+
+.mm__cta {
+  margin-top: 8px;
+}

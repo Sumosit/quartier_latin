@@ -7,6 +7,7 @@ interface BlockData {
   title: string;
   description: string;
   price: string;
+  hasLongPrice: boolean;
   aspectRatio: string;
   backgroundColor: string;
   cssClass: string;
@@ -94,11 +95,15 @@ export class ServicesDynamicBlocksComponent implements OnInit {
     for (let i = 0; i < 7; i++) {
       const template = this.serviceTemplates[i % this.serviceTemplates.length];
 
+      // Определяем, является ли цена длинной
+      const hasLongPrice = this.isLongPrice(template.price);
+
       this.allBlocks.push({
         id: i + 1,
         title: template.title,
         description: template.description,
         price: template.price,
+        hasLongPrice: hasLongPrice, // Добавляем новое поле
         aspectRatio: '1/1', // Временно, будет переопределено
         backgroundColor: this.getRandomColor(),
         cssClass: 'ratio-1-1', // Временно
@@ -107,6 +112,23 @@ export class ServicesDynamicBlocksComponent implements OnInit {
 
     this.shuffleArray(this.allBlocks);
     this.arrangeBlocks();
+  }
+
+  private isLongPrice(price: string): boolean {
+    // Удаляем HTML теги, HTML-сущности (&nbsp;, &euro; и т.д.) и лишние пробелы
+    const cleanPrice = price
+      .replace(/<[^>]*>/g, '') // Убираем HTML теги
+      .replace(/&[a-zA-Z0-9#]+;/g, ' ') // Убираем HTML-сущности (&nbsp;, &euro; и т.д.)
+      .replace(/\s+/g, ' ') // Заменяем множественные пробелы на один
+      .trim();
+
+    // Определяем как длинную цену, если:
+    // - длина больше 8 символов
+    // - содержит текст без цифр (например, "Бесплатно", "От 1000 €")
+    // - содержит слова "От", "до", "Бесплатно" и т.д.
+    const longPricePatterns = /^(бесплатно)/i;
+
+    return cleanPrice.length > 8 || longPricePatterns.test(cleanPrice);
   }
 
   arrangeBlocks(): void {
@@ -159,15 +181,17 @@ export class ServicesDynamicBlocksComponent implements OnInit {
   createDesktopLayout(): void {
     this.rows = [];
 
-    // Разделяем блоки на две группы: с числовой ценой и без
-    const blocksWithNumericPrice = this.allBlocks.filter(block => /\d/.test(block.price));
-    const blocksWithoutNumericPrice = this.allBlocks.filter(block => !/\d/.test(block.price));
+    // Разделяем блоки на группы: с числовой ценой, без числовой цены и с длинной ценой
+    const blocksWithNumericPrice = this.allBlocks.filter(block => /\d/.test(block.price) && !block.hasLongPrice);
+    const blocksWithoutNumericPrice = this.allBlocks.filter(block => !/\d/.test(block.price) && !block.hasLongPrice);
+    const blocksWithLongPrice = this.allBlocks.filter(block => block.hasLongPrice);
 
     // Создаем копию всех паттернов для использования
     const availablePatterns = [...this.rowTypes];
 
     let numericPriceIndex = 0;
     let nonNumericPriceIndex = 0;
+    let longPriceIndex = 0;
 
     // Создаем ровно 3 строки, используя каждый паттерн по одному разу
     for (let i = 0; i < 3; i++) {
@@ -183,19 +207,22 @@ export class ServicesDynamicBlocksComponent implements OnInit {
         let blockToUse: BlockData | undefined;
 
         if (aspectRatio === '1/1') {
-          // Для 1/1 используем только блоки с числовой ценой
+          // Для 1/1 используем блоки с короткой числовой ценой
           if (numericPriceIndex < blocksWithNumericPrice.length) {
             blockToUse = blocksWithNumericPrice[numericPriceIndex];
             numericPriceIndex++;
           }
         } else {
-          // Для 16/9 и 5/4 можем использовать любые блоки
-          // Сначала пробуем взять блок без числовой цены
-          if (nonNumericPriceIndex < blocksWithoutNumericPrice.length) {
+          // Для 16/9 и 5/4 можем использовать блоки с длинной ценой или без числовой цены
+          if (longPriceIndex < blocksWithLongPrice.length) {
+            blockToUse = blocksWithLongPrice[longPriceIndex];
+            longPriceIndex++;
+          }
+          else if (nonNumericPriceIndex < blocksWithoutNumericPrice.length) {
             blockToUse = blocksWithoutNumericPrice[nonNumericPriceIndex];
             nonNumericPriceIndex++;
           }
-          // Если блоков без числовой цены нет, берем с числовой ценой
+          // В крайнем случае берем блок с числовой ценой
           else if (numericPriceIndex < blocksWithNumericPrice.length) {
             blockToUse = blocksWithNumericPrice[numericPriceIndex];
             numericPriceIndex++;

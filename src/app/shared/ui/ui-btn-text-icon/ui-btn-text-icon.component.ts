@@ -5,7 +5,6 @@ import {SvgIconComponent} from 'angular-svg-icon';
 @Component({
   selector: 'app-ui-btn-text-icon',
   imports: [
-    SvgsComponent,
     SvgIconComponent
   ],
   templateUrl: './ui-btn-text-icon.component.html',

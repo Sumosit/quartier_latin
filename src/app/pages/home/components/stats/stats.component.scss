@@ -34,13 +34,13 @@
   overflow: hidden; /* Добавить эту строку */
 
   .content, .content-v1 {
-    height: 100%;
     margin: 0 auto;
+    padding: 40px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 32px;
-    padding: 40px;
 
     .eu-books {
       position: absolute;
@@ -117,11 +117,8 @@
         top: initial;
         bottom: -16px;
         right: -42px;
-
-        img {
-          width: 265px;
-          height: 265px;
-        }
+        width: 265px;
+        height: 265px;
       }
 
       .text-content {
@@ -164,11 +161,8 @@
         top: initial;
         bottom: -29px;
         right: -72px;
-
-        img {
-          width: 255px;
-          height: 255px;
-        }
+        width: 255px;
+        height: 255px;
       }
 
       .text-content {

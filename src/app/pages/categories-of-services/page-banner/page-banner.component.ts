@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {UiBtnTextIconComponent} from '../../../shared/ui/ui-btn-text-icon/ui-btn-text-icon.component';
-import {NgForOf, NgIf} from '@angular/common';
 import {RouterLink} from '@angular/router';
 
 export interface BannerPath {
@@ -13,8 +12,6 @@ export interface BannerPath {
   selector: 'app-page-banner',
   imports: [
     UiBtnTextIconComponent,
-    NgIf,
-    NgForOf,
     RouterLink
   ],
   templateUrl: './page-banner.component.html',

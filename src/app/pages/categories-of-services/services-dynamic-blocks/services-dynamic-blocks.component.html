@@ -1,13 +1,14 @@
 <div class="services-dynamic-blocks-field">
-  <app-ui-btn-text-icon btnText="Адаптация на месте" btnStyle="style-header"></app-ui-btn-text-icon>
+  <app-ui-btn-text-icon btnStyle="style-header">
+    <h3>Адаптация на месте</h3>
+  </app-ui-btn-text-icon>
   <div class="blocks-container">
     @for (row of rows; track row) {
-      <div class="block-row"
-           [class]="row.cssClass"
-      >
+      <div class="block-row" [class]="row.cssClass">
         @for (block of row.blocks; track block) {
           <div class="dynamic-block"
                [class]="block.cssClass"
+               [class.long-price]="block.hasLongPrice"
                [style.background-color]="block.backgroundColor">
             <div class="block-content">
               <div class="block-header">
@@ -16,8 +17,11 @@
               </div>
 
               <div class="block-footer">
-                <div class="price" [innerHTML]="block.price"></div>
-                <app-ui-btn-text-icon btnText="Заказать услугу" btnIcon="arrow-right"
+                <div class="price"
+                     [innerHTML]="block.price"
+                     [class.long-price-text]="block.hasLongPrice"></div>
+                <app-ui-btn-text-icon btnText="Заказать услугу"
+                                      btnIcon="arrow-right"
                                       btnStyle="style-2"></app-ui-btn-text-icon>
               </div>
             </div>

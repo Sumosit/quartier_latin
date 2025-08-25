@@ -1,0 +1,61 @@
+<div class="mm" [class.mm--open]="open">
+  <div class="mm__backdrop" (click)="onBackdropClick($event)"></div>
+
+  <aside class="mm__panel">
+    <div class="mm__header">
+      <svg-icon src="/assets/images/icons/menu.svg" (click)="close()"></svg-icon>
+    </div>
+
+    <nav class="mm__nav">
+      @for (item of menu; track item.label) {
+        @if (!item.children) {
+          <a [routerLink]="item.link"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{exact: item.link?.toString() === '/'}"
+             (click)="close()">
+            {{ item.label }}
+          </a>
+        }
+
+        @if (item.children) {
+          <div>
+            <button type="button"
+                    class="mm__accordion"
+                    [attr.aria-expanded]="isOpen(item.key)"
+                    (click)="toggle(item.key)">
+              {{ item.label }}
+              <svg-icon src="/assets/images/icons/chevron-down.svg" class="mm__chev" [class.open]="isOpen(item.key)">▾
+              </svg-icon>
+            </button>
+            <div class="mm__submenu" [class.open]="isOpen(item.key)">
+              @for (sub of item.children; track sub.label) {
+                <a [routerLink]="sub.link"
+                   (click)="close()">
+                  {{ sub.label }}
+                </a>
+              }
+            </div>
+          </div>
+        }
+      }
+      <app-ui-dropdown placeholder="RU" [options]="['RU','FR','EN']" dropdownStyle="style-3"></app-ui-dropdown>
+    </nav>
+
+    <div class="mm__lang">
+      <label>
+        <span>Язык</span>
+        <select>
+          <option>RU</option>
+          <option>EN</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="mm__cta">
+      <app-ui-btn-text-icon
+        btnText="Записаться на консультацию"
+        (click)="close()"
+      ></app-ui-btn-text-icon>
+    </div>
+  </aside>
+</div>

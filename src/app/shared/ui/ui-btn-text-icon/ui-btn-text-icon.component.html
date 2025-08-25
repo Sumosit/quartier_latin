@@ -1,6 +1,10 @@
 <div class="{{btnStyle}} {{btnOrder}}">
   @if (btnText) {
-    <span [innerHTML]="btnText"></span>
+    @if (btnStyle === 'style-header') {
+      <h3 [innerHTML]="btnText"></h3>
+    } @else {
+      <span [innerHTML]="btnText"></span>
+    }
   }
   @if (btnIcon) {
     <svg-icon [src]="'/assets/images/icons/' + btnIcon + '.svg'"></svg-icon>

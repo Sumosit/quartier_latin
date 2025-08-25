@@ -21,12 +21,12 @@ export type DropdownOption = string | { label: string; value: any };
   }]
 })
 export class UiInputDropdownComponent implements ControlValueAccessor {
-  @Input() dropdownStyle: 'style-1' | 'style-2' = 'style-1'
+  @Input() dropdownStyle: 'style-1' | 'style-2' | 'style-3' = 'style-1'
   @Input() options: DropdownOption[] = [];
   @Input() placeholder = '';
   @Input() disabled = false;
   @Input() panelMaxHeight = 260; // px
-  @Input() noClear = false;      // если true — пункт "Очистить" не показываем
+  @Input() noClear = true;      // если true — пункт "Очистить" не показываем
 
   @Output() valueChange = new EventEmitter<any>();
 

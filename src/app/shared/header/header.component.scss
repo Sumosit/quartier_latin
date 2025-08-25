@@ -21,7 +21,7 @@
     align-items: center;
     gap: 34px;
 
-    app-ui-btn-text-icon {
+    svg-icon {
       margin-left: auto;
     }
   }
@@ -97,7 +97,11 @@
     }
   }
 
-  app-ui-btn-icon {
+  app-ui-btn-text-icon {
+    margin-left: auto;
+  }
+
+  svg-icon {
     display: none;
   }
 }
@@ -109,7 +113,7 @@
         display: none;
       }
 
-      app-ui-btn-icon {
+      svg-icon {
         display: initial;
         margin-left: auto;
       }

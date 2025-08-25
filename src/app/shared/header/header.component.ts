@@ -6,11 +6,12 @@ import {ModalService} from '../modal-field/modal.service';
 import {filter, Subscription, merge} from 'rxjs';
 import {SvgsComponent} from '../svgs/svgs.component';
 import {SvgIconComponent} from 'angular-svg-icon';
+import {MobileMenuComponent} from './mobile-menu/mobile-menu.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, UiBtnTextIconComponent, UiBtnIconComponent, SvgsComponent, SvgIconComponent],
+  imports: [RouterLink, RouterLinkActive, UiBtnTextIconComponent, UiBtnIconComponent, SvgsComponent, SvgIconComponent, MobileMenuComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })

@@ -19,6 +19,12 @@
       </div>
     </nav>
     <app-ui-btn-text-icon (click)="modalService.currentModal = 'form-consultation'" btnText="Записаться на консультацию"></app-ui-btn-text-icon>
-    <app-ui-btn-icon btnStyle="style-3" btnIcon="menu"></app-ui-btn-icon>
+    <svg-icon src="/assets/images/icons/menu.svg" (click)="toggleMobileMenu()"></svg-icon>
   </div>
 </header>
+
+
+<app-mobile-menu
+  [open]="isMobileMenuOpen"
+  (closed)="isMobileMenuOpen = false"
+></app-mobile-menu>

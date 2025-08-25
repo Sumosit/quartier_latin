@@ -3,14 +3,11 @@
     <div class="content">
       <div class="text-content">
         <h1 class="title" [innerHTML]="title"></h1>
-        <app-ui-btn-text-icon btnText="Узнать о компании"></app-ui-btn-text-icon>
+        <app-ui-btn-text-icon btnText="Узнать о компании" btnStyle="style-1" ></app-ui-btn-text-icon>
       </div>
-      <div class="eu-books">
-        <img src="assets/images/eu_books.png" alt="">
-      </div>
+      <img class="eu-books" src="assets/images/eu_books.png" alt="">
     </div>
-  }
-  @else if (mainSectionType === 1) {
+  } @else if (mainSectionType === 1) {
     <div class="content-v1">
       <div class="text-content">
         <app-ui-dropdown dropdownStyle="style-2"
